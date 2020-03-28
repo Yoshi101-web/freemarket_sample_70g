@@ -30,6 +30,9 @@ a {
         &__btn {
           background-color: #3CCACE;
           padding: 8px;
+          &:hover{
+            cursor: pointer;
+          }
         }
       }
     }
@@ -39,35 +42,149 @@ a {
       font-size: 15px;
       display: flex;
       justify-content: space-between;
-      .lists__left {
+      .category-brand{
         line-height: 35px;
         display: flex;
-        .category {
-          margin-left: 10px;
-          color: black;
+        .category{
+          width: 100px;
+          &:hover > .firstmenu-parent{
+            visibility: visible;
+            opacity: 1;
+          }
+          &:hover{
+            cursor: pointer;
+          }
+          .firstmenu-parent{
+            display: flex;
+            flex-direction: column;
+            height: 665px;
+            width: 300px;
+            visibility: hidden;
+            z-index: 2;
+            position: relative;
+            .parent-name{
+              width: 250px;
+              height: 35px;
+              line-height: 35px;
+              font-size: 12px;
+              background-color: rgba(255, 247, 247, 0.9);
+              &:hover {
+                background-color: #3CCACE;
+              }
+              &:hover >.secondmenu-children{
+                opacity: 1;
+                visibility: visible;
+                color: black;
+              }
+              .categories__name {
+                display: block;
+                height: 35px;
+                width: 250px;
+                &:hover{
+                  height: 35px;
+                  width: 250px;
+                  display: block;
+                }
+              }
+              .secondmenu-children{
+                height: 455px;
+                opacity: 0;
+                display: flex;
+                flex-direction: column;
+                visibility: hidden;
+                position: absolute;
+                top: 0;
+                left: 248px;
+                .children-name{
+                  width: 250px;
+                  height: 35px;
+                  background-color: rgba(255, 247, 247, 0.9);
+                  &:hover{
+                    background-color: #3CCACE;
+                  }
+                  &:hover > .thirdmenu-grandchildren{
+                    opacity: 1;
+                    visibility: visible;
+                  }
+                  .thirdmenu-grandchildren{
+                    height: 665px;
+                    opacity: 1;
+                    visibility: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 0;
+                    left: 100%;
+                    .grandchildren-name{
+                      background-color: rgba(255, 247, 247, 0.9);
+                      width: 250px;
+                      height: 35px;
+                      margin-left: 0;
+                      &:hover {
+                        background-color: #3CCACE;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
         .brand {
           margin-left: 50px;
           color: black;
+          &:hover > .abnc {
+            visibility: visible;
+            opacity: 1;
+          }
+          &:hover{
+            cursor: pointer;
+            opacity: 1;
+          }
+          .abnc {
+            width: 250px;
+            display: block;
+            visibility: hidden;
+            background-color: rgba(255, 247, 247, 0.9);
+            border-top: solid 1px rgb(221, 221, 221);
+            z-index: 1;
+            position: relative;
+            .brand__lists {
+              margin-left: auto;
+              cursor: pointer;
+              height: 35px;
+              width: 250px;
+              .brands__name {
+                display: block;
+                height: 35px;
+                width: 250px;
+              }
+              &:hover {
+                background-color: #3CCACE;
+              }
+            }
+          }
         }
       }
       .lists__right {
         line-height: 35px;
         display: flex;
-        .login {
+        .logins {
           margin-right: 50px;
           color: black;
         }
         .signin {
-          margin-right: 10px;
+          margin-right: 50px;
           color: black;
+        }
+        .facebook {
+          margin-right: 10px;
+          cursor: pointer;
         }
       }
     }
   }
 }
-
-
 
 
 .main {
@@ -76,6 +193,7 @@ a {
     background-image: url("/material/pict/bg-mainVisual-pict_pc.jpg");
     background-size: cover;
     position: relative;
+
     &__picture {
       height: 100%;
       width: 100vw;
@@ -102,8 +220,8 @@ a {
           width:  auto;
         }
         .abtn:hover {
-          opacity: 0.5 ;
-        }    
+          opacity: 0.5;
+        }
         .gbtn {
           height: 100%;
           width:  auto;
@@ -111,7 +229,7 @@ a {
           transform: scale(1.45);
         }
         .gbtn:hover {
-          opacity: 0.5 ;
+          opacity: 0.5;
         }
       }
     }
@@ -208,8 +326,8 @@ a {
           width:  auto;
         }
         .abtn:hover {
-          opacity: 0.5 ;
-        }    
+          opacity: 0.5;
+        }
         .gbtn {
           height: 100%;
           width:  auto;
@@ -217,7 +335,7 @@ a {
           transform: scale(1.45);
         }
         .gbtn:hover {
-          opacity: 0.5 ;
+          opacity: 0.5;
         }
       }
     }
@@ -249,25 +367,19 @@ a {
       .item {
         width: calc(100% / 3);
         padding: 0 20px;
-        &__img {
-
-        }
         &__subtitle {
           font-size: large;
           font-weight: bold;
-        }
-        &__detail {
-
         }
       }
     }
   }
   .pickup__container {
-    height: 1000px;
-    background-color: rgb(228, 228, 228);
+    height: 730px;
+    background-color: rgb(239, 241, 243);
     &__category {
       height: 420px;
-      padding: 80px 0 0;
+      padding: 40px 0 0;
       text-align: center;
       font-weight: bold;
       .head {
@@ -275,15 +387,20 @@ a {
         line-height: 28px;
       }
       .product {
+        width: 1000px;
+        margin: 0 auto;
         &__title {
           font-size: 23px;
-          color: rgb(60, 202, 206);
+          color: rgb(52, 181, 185);
+
         }
         &__lists {
           display: flex;
-          justify-content: center;
+          flex-wrap: wrap;
+          // justify-content: space-around;
           .product__list {
             margin: 15px 15px;
+            box-shadow: 3px 3px 12px rgba(0, 0, 0,0.3);
             &__img {
               height: 150px;
               width: 220px;
@@ -301,69 +418,29 @@ a {
               }
               .item__details {
                 ul {
+                  width: 100%;
                   display: flex;
                   justify-content: space-between;
-                  li {
+                  .flex-two {
                     .category-yen{
-                      &::after{
-                        content: '円';
+                      &::before{
+                        content: '¥';
                       }
                     }
                   }
-                }
-                p {
-                  text-align: left;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    &__brand {
-      height: 420px;
-      padding: 80px 0 0;
-      text-align: center;
-      font-weight: bold;
-      .head {
-        font-size: 28px;
-        line-height: 28px;
-      }
-      .product {
-        &__title {
-          font-size: 23px;
-          color: rgb(60, 202, 206);
-        }
-        &__lists {
-          display: flex;
-          justify-content: center;
-          .product__list {
-            margin: 15px 15px;
-            &__img {
-              height: 150px;
-              width: 220px;
-              background-image: url("https://cdn.pixabay.com/photo/2014/09/16/01/19/girl-447701_1280.jpg");
-              background-size: cover;
-            }
-            &__text {
-              font-size: 16px;
-              padding: 16px;
-              color: #333;
-              background-color: white;
-              .item__name {
-                margin-left: 0px;
-                text-align: left;
-              }
-              .item__details {
-                ul {
-                  display: flex;
-                  justify-content: space-between;
-                  li {
-
+                  .like-counts{
+                    text-align: right;
+                    &::before{
+                      font-family: "Font Awesome 5 Free";
+                      font-weight: bold;
+                      content: '\f004';
+                      color: rgb(255, 112, 195);
+                    }
                   }
                 }
-                p {
+                p{
                   text-align: left;
+                  margin-left: 6px;
                 }
               }
             }
@@ -373,9 +450,6 @@ a {
     }
   }
 }
-
-
-
 
 .appbanner {
   height: 150px;
@@ -403,7 +477,7 @@ a {
         width:  auto;
       }
       .abtn:hover {
-        opacity: 0.5 ;
+        opacity: 0.5;
       }  
       .gbtn {
         height: 100%;
@@ -412,14 +486,11 @@ a {
         transform: scale(1.45);
       }
       .gbtn:hover {
-        opacity: 0.5 ;
+        opacity: 0.5;
       }
     }
   }
 }
-
-
-
 
 .footer {
   height: 230px;
@@ -447,16 +518,14 @@ a {
     }
   }
   .footer__logo {
-    margin-left: 640px;
+    display: block;
+    margin: 0 auto;
   }
   p {
     color: white;
     text-align: center;
   }  
 }
-
-
-
 
 
 a {

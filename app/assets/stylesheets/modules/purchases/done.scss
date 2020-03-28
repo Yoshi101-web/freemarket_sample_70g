@@ -1,11 +1,107 @@
-.wrapper {
-  .header {
-    color: red;;
+$bg-border-color: #f1f1f1;
+
+.items-purchases-done-header {
+  height: 128px;
+  background-color: #f1f1f1;
+
+  a{
+    margin:0 auto;
+    display:block;
+    width: 200px;
+    padding-top: 35px;
   }
-  .main {
-    height: 300px;
-    .return {
-      margin-top: 150px;
+  &__logo {
+    display:block;
+    padding: 12px 0 0 15px
+  }
+}
+.main-purchases-done-contents{
+  background-color: $bg-border-color;
+  .main-purchases-done-content{
+    height: 500px;
+    width: 700px;
+    background-color: white;
+    margin: 0 auto;
+
+    &__header{
+      height: 90px;
+      width: 100%;
+      border-bottom: 1px solid $bg-border-color;
+      h2{
+        font-size:23px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 90px;
+        
+      }
+    }
+    &__buy-item{
+      height: 100px;
+      width: 100%;
+      border-bottom: 1px solid $bg-border-color;
+      padding: 20px 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &__group{
+        margin-left: 15px;
+        width: 280px;
+        &__item-name{
+          font-size: 16px;
+          margin-bottom: 5px;
+          color: #333333;
+        }
+        &__item-price{
+          font-size: 15px;
+          font-weight: bold;
+          display: inline-block;
+          float: left;
+          h3{
+            font-weight: bold;
+            display: inline-block;
+          }
+        }
+        &__shipping-fee-payer{
+          float: left;
+          margin-left: 5px;
+          h3.purchases-done-tax {
+            margin-top: 3px;
+            font-size: 15px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    &__submit{
+      height: 60px;
+      // width: 100%;
+      margin-top:50px;
+      margin: 0 auto;
+      .purchases-done-confirm-submit{
+        display: block;
+        width: 360px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        margin: 50px auto;
+        font-weight: bold;
+        border-radius: 4px;
+        background-color: #87ceeb;
+      }
+      .purchases-done-return-btn {
+        display: block;
+        background-color: #afeeee;
+        font-weight: bold;
+        width: 360px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        border-radius: 4px;
+        outline: none;
+        border-style: none;
+        margin: 30px auto;
+      }
     }
   }
 }

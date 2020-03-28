@@ -1,0 +1,178 @@
+.body-edit
+  .items-new-header
+    =link_to root_path do
+      = image_tag "/logo.png", size: "185x49"
+      
+  = render 'layouts/error_messages', model: @item
+
+  .edit-main-content
+    = form_with model: @item,local: true do |f|
+      .edit-main-content__box
+        .edit-title
+          .edit-title__size
+            %h2 編集
+        .edit-main-content__box__image-content
+          .edit-main-content__box__image-content__field
+            .edit-main-content__box__image-content__field__subtitle
+              .index 商品画像
+              .caution 必須
+            %p.memo 
+              最大
+              /
+              10
+              /
+              枚までアップロードできます
+
+            .exmain-box
+              .exmain-box__main
+                .exmain-box__main__uploader#box-hidden
+                  %label.exmain-box__main__uploader__label<>
+                    .js-file_group{data: {index: "#{@item.images.count}"}}
+                      %i.fa.fa-camera
+                      = f.file_field :image, name: "item[images_attributes][#{@item.images.count}][image]", id: "item_photos_attributes_#{@item.images.count}_image", class: 'js-file'
+
+                    .image-upload-description-box
+                      %p.first-line ドラッグアンドドロップ
+                      %p.second-line またはクリックしてファイルをアップロード
+
+                .exmain-box__main__previews
+                  - if @item.persisted?
+                    - @item.images.each_with_index do |image, i|
+                      .exmain-box__main__previews__view{data: {index: "#{i}"}}
+                        .exmain-box__main__previews__view__image
+                          = image_tag image.image.url, data: { index: i }, class: 'input_images', width: "112", height: '80'
+                          .js-remove.exmain-box__main__previews__view__delete
+                            削除
+                    = f.fields_for :images, @item.images do |image|
+                      - if @item.persisted?
+                        = image.check_box :_destroy, include_hidden: false, data:{ index: image.index },class: 'hidden-destroy'
+                
+
+                    
+        .edit-main-content__box__item-info-content
+          .edit-main-content__box__item-info-content__subtitle
+            .index 商品名
+            .caution 必須
+          .item-info-form
+            = f.text_field :item_name, placeholder: "40文字まで", class: "name-input-box", size: 40
+
+          .edit-main-content__box__item-info-content__description
+            .index 商品の説明
+            .caution 必須
+          .item-descriptaion-form
+            = f.text_area :description, placeholder: "商品の説明(必須 1,000文字以内)(色、素材、重さ、低下、注意点など)例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。", class: "description-input-box",rows:"25", cols:"40"
+            
+        .edit-main-content__box__item-detail-content
+          .edit-main-content__box__item-detail-content__field 
+            .edit-main-content__box__item-detail-content__field__subtitle 商品詳細
+
+            .category-box
+              .index カテゴリー
+              .caution 必須
+            .selected_category
+              = @selected_parent_category.name
+              ＞
+              = @selected_child_category.name
+              ＞
+              = @selected_grandchild_category.name
+            .warning
+              %h4 ※変更する場合は、選び直してください
+            .item_category-select
+              = f.collection_select :category, @category, :id, :name, { prompt: "選択してください" }, { class: "category_select-box", id: "category_select" }
+              %i.fa.fa-chevron-down
+            .item_select-children
+
+            .brand-box
+              .index ブランド
+              .caution 任意
+            .brand-form-field
+              = f.text_field :brand_name, placeholder:"例）シャネル", class:"brand-input-box"
+
+
+            .size-box
+              .index サイズ
+              .caution 任意
+            .size-form-field
+              = f.text_field :size, placeholder:"サイズを入力してください", class:"size-input-box"
+
+            .condition-box
+              .index 商品の状態
+              .caution 必須
+            .condetion-form-field
+              = f.select :condition,
+              {新品、未使用:"新品、未使用",
+              未使用に近い:"未使用に近い",
+              目立った傷や汚れなし:"目立った傷や汚れなし",
+              やや傷や汚れあり:"やや傷や汚れあり",
+              傷や汚れあり:"傷や汚れあり",
+              全体的に状態が悪い:"全体的に状態が悪い"},
+              { include_blank: "選択してください"}
+
+        .edit-main-content__box__delivery-info-content
+          .edit-main-content__box__delivery-info-content__field 
+            .edit-main-content__box__delivery-info-content__field__subtitle-box
+              .edit-main-content__box__delivery-info-content__field__subtitle 配送について
+              = link_to "#", class:"faq-icon" do
+                = icon('fas', 'question-circle', class: 'faq-btn')
+
+            .shipping-fee-payer-box
+              .index 配送料の負担
+              .caution 必須
+            .shipping-fee-payer-form-field
+              = f.select :shipping_fee_payer,
+              {送料込み（出品者負担）:"送料込み（出品者負担）",
+              着払い（購入者負担）:"着払い（購入者負担）"},
+              { include_blank: "選択してください"}
+            .shipping-location-box
+              .index 配送元の地域
+              .caution 必須
+            .shipping-location-form-field
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+
+            .shipping-fee-payer-box
+              .index 発送までの日数
+              .caution 必須
+            .shipping-days-form-field
+              = f.select :shipping_days,
+              {１〜２日で発送:"１〜２日で発送",
+              ２〜３日で発送:"２〜３日で発送",
+              ４〜７日で発送:"４〜７日で発送"},
+              { include_blank: "選択してください"}
+      
+        .edit-main-content__box__cost-info-content
+          .edit-main-content__box__cost-info-content__subtitle-box
+            .edit-main-content__box__cost-info-content__subtitle-box__subtitle 販売価格 (¥300〜¥9,999,999)
+            = link_to "#", class:"faq-icon" do
+              = icon('fas', 'question-circle', class: 'faq-btn')
+            
+          .price-info-box
+            .price-info-box__left
+              .index 販売価格
+              .hoge
+                .caution 必須
+            .price-info-box__right
+              %span.currency ¥
+              = f.number_field :price, placeholder:"0", class:"price-input-box", min: 300, max:9999999
+          
+          .sales-commission-info
+            .sales-commission-tax 販売手数料（10%）
+            .sales-commission-calc
+            
+          .sales-profit-info
+            .sales-profit-subtitle 販売利益
+            .sales-profit-calc
+
+          = f.submit "再出品する", class: "sell-btn"
+
+          = link_to :back do
+            %input.edit-return-btn{type: "button", value: "もどる"}
+
+          .terms-info-box
+            %p.tems-info-description 
+              禁止されている行為および出品物を必ずご確認ください。
+              /
+              偽ブランドや盗品物などの販売は犯罪であり、法律により処罰される可能性があります。
+              /
+              また、出品をもちまして加盟店規約に同意したことになります。
+
+  = render partial:"shared/index_footer"

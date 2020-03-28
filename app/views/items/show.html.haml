@@ -1,58 +1,98 @@
-%link{ rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css"}
-%script{src: "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"}
+
+%link{:href => "https://unpkg.com/swiper/css/swiper.min.css", :rel => "stylesheet"}/
+%script{:src => "https://unpkg.com/swiper/js/swiper.min.js"}
+
 .product
-  .header
-    .header__box
-      .header__box__main
-        = link_to root_path do
-          = image_tag "/material/logo/logo.png", size: "140x40"
-        = form_with url: "#", class: "search__box" do |f|
-          = f.text_field :content, class: 'search__box__form', placeholder: ' キーワードから探す'
-        = link_to "#" do
-          = image_tag "/material/icon/icon-search 1.png", size: "24x24", class: "search__box__btn"
-      .header__box__sub
-        %ul.lists__left
-          %li
-            = link_to "#",class: "category" do
-              カテゴリー
-          %li
-            = link_to "#",class: "brand" do
-              ブランド
-        %ul.lists__right
-          %li
-            = link_to "ログアウト","#", method: :delete, class: 'logout'
-          %li
-            = link_to "#",class: "signin" do
-              新規会員登録
+  = render partial:"shared/index_header"
+
   .product-contents
     .product-contents__inner
       .product-contents__inner__mainbox
         .product-contents__inner__mainbox__top
           .product-contents__inner__mainbox__top__name
             = @item.item_name
-          -# - if user_signed_in? && current_user.id == @item.user_id
+          - if 1 < 3
             .product-contents__inner__mainbox__top__itemManage
-              = link_to "編集", edit_item_path(@item.id), class: "itemManage__edit"
-              = link_to "削除", item_path(@item.id), method: :delete, class: "itemManage__delete"
-        -# .product-contents__inner__mainbox__main-image
+Z
+        .product-contents__inner__mainbox__main-upper-box
+          .product-contents__inner__mainbox__main-upper-box__main-image
+            .swiper-container.gallery-top
+              .swiper-wrapper
+                - @item.images.each do |image|
+                  - if @item.item_purchaser_id.present?
+                    .swiper-slide
+                      = image_tag "#{image.image}", alt: "テスト", size: "400x389"
+                      .items-box_photo__sold
+                        .items-box_photo__sold__inner
+                          SOLD
+                  - else
+                    .swiper-slide
+                      = image_tag "#{image.image}", alt: "テスト", size: "400x389"
+              / Add Arrows
+              .swiper-button-next.swiper-button-white
+              .swiper-button-prev.swiper-button-white
+              .swiper-pagination
+            .swiper-container.gallery-thumbs
+              .swiper-wrapper
+                - @item.images.each do |image|
+                  .swiper-slide
+                    = image_tag "#{image.image}", alt: "テスト", size: "100x100"
 
-        .swiper-container
-          .swiper-wrapper
-            .swiper-slide
-              = image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "main-image"
-            .swiper-slide
-              = image_tag "https://dol.ismcdn.jp/mwimgs/c/8/670m/img_c8dad835c4b9134b067cc8b8efcab22f143142.jpg",class: "main-image"
-            .swiper-slide
-              = image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "main-image"
+          .product-contents__inner__mainbox__main-upper-box__table
+            .product-contents__inner__mainbox__main-upper-box__table__box
+              .leftbox
+                出品者
+              .rightbox
+                = @item.user.nickname
+            .product-contents__inner__mainbox__main-upper-box__table__category-box
+              .category-leftbox
+                カテゴリー
+              .category-rightbox
+                = link_to category_path(@item.category.parent.parent.id),class:"parent-name" do
+                  = @item.category.parent.parent.name
 
-          .swiper-my-pagination
-        -# .product-contents__inner__mainbox__other-images
-        -#   .product-contents__inner__mainbox__other-images__three-images
-        -#     .product-contents__inner__mainbox__other-images__three-images__first
-        -#     .product-contents__inner__mainbox__other-images__three-images__second
-        -#     .product-contents__inner__mainbox__other-images__three-images__thrid
+                = link_to category_path(@item.category.parent.id), class:"children-name" do
+                  = @item.category.parent.name
+                = link_to category_path(@item.category.id), class:"grand-children-name" do
+                  = @item.category.name
+                
+            .product-contents__inner__mainbox__main-upper-box__table__box
+              .leftbox
+                ブランド
+              .rightbox
+                = @item.brand_name
+            .product-contents__inner__mainbox__main-upper-box__table__box
+              .leftbox
+                商品のサイズ
+              .rightbox
+                = @item.size
+            .product-contents__inner__mainbox__main-upper-box__table__box
+              .leftbox
+                商品の状態
+              .rightbox
+                = @item.condition
+            .product-contents__inner__mainbox__main-upper-box__table__box
+              .leftbox
+                配送料の負担
+              .rightbox
+                = @item.shipping_fee_payer
+            .product-contents__inner__mainbox__main-upper-box__table__box
+              .leftbox
+                発送元の地域
+              .rightbox
+                = @item.prefecture.name
+            .product-contents__inner__mainbox__main-upper-box__table__box
+              .leftbox
+                発送日の目安
+              .rightbox
+                = @item.shipping_days
 
 
+        .product-contents__inner__mainbox__other-images
+          .product-contents__inner__mainbox__other-images__three-images
+            .product-contents__inner__mainbox__other-images__three-images__first
+            .product-contents__inner__mainbox__other-images__three-images__second
+            .product-contents__inner__mainbox__other-images__three-images__thrid
 
         .product-contents__inner__mainbox__price
           = @item.price
@@ -61,167 +101,98 @@
         - if user_signed_in? && current_user.id == @item.user_id
           .item-buy-btn
             これはあなたの出品物です
+        - elsif @item.item_purchaser_id.present?
+          .item-sold-notice
+            この商品は売却済です
         - else
-          = link_to confirm_items_path,class: "item-buy-btn" do
+          = link_to confirm_item_path(@item.id),class: "item-buy-btn" do
             購入画面に進む
         .product-contents__inner__mainbox__description
-          = @item.description
-        .product-contents__inner__mainbox__table
-          .product-contents__inner__mainbox__table__box
-            .leftbox
-              出品者
-            .rightbox
-              = @item.user.nickname
-          .product-contents__inner__mainbox__table__box
-            .leftbox
-              カテゴリー
-            .rightbox
-              = "#{@item.category.parent.parent.name}/#{@item.category.parent.name}/#{@item.category.name}"
-              
-          .product-contents__inner__mainbox__table__box
-            .leftbox
-              ブランド
-            .rightbox
-              = @item.brand_name
-          .product-contents__inner__mainbox__table__box
-            .leftbox
-              商品のサイズ
-            .rightbox
-              = @item.size
-          .product-contents__inner__mainbox__table__box
-            .leftbox
-              商品の状態
-            .rightbox
-              = @item.condition
-          .product-contents__inner__mainbox__table__box
-            .leftbox
-              配送料の負担
-            .rightbox
-              = @item.shipping_fee_payer
-          .product-contents__inner__mainbox__table__box
-            .leftbox
-              発送元の地域
-            .rightbox
-              = @item.prefecture.name
-          .product-contents__inner__mainbox__table__box
-            .leftbox
-              発送日の目安
-            .rightbox
-              = @item.shipping_days
-        .product-contents__inner__mainbox__links
-          .product-contents__inner__mainbox__links__favorite
-            .product-contents__inner__mainbox__links__favorite__icon
-              = icon('fa', 'star',class: 'star-icon')
-            .product-contents__inner__mainbox__links__favorite__letter
-              お気に入り 0
-          .product-contents__inner__mainbox__links__report
-            .product-contents__inner__mainbox__links__report__icon
-              = icon('fa', 'flag',class: 'flag-icon')
-            .product-contents__inner__mainbox__links__report__letter
-              不適切な商品の通報
+          = simple_format @item.description
+
+        - if user_signed_in?
+          .product-contents__inner__mainbox__links
+            .product-contents__inner__mainbox__links__favorite
+              = render partial: 'shared/like', locals: { item: @item }
+                              
+            .product-contents__inner__mainbox__links__report
+              .product-contents__inner__mainbox__links__report__icon
+                = icon('fa', 'flag',class: 'flag-icon')
+              .product-contents__inner__mainbox__links__report__letter
+                不適切な商品の通報
+
 
       - if user_signed_in? && current_user.id == @item.user_id
         .product-contents__inner__edit-delete-btn-content
           .edit-btn
-            .edit-btn__text
-              商品の編集
+            = link_to edit_item_path(@item.id), class: "itemManage__edit" do
+              .edit-btn__text
+                商品の編集
             .selection
               or
             = link_to item_path(@item.id),method: :delete do
               .delete-btn
                 この商品を削除する
                 
-              
-      .product-contents__inner__commentbox       
-        .product-contents__inner__commentbox__content
-        .product-contents__inner__commentbox__warning
-          相手のことを考え丁寧なコメントを心がけましょう.
-          %br/
-          不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        .product-contents__inner__commentbox__comment
-          .product-contents__inner__commentbox__comment__icon
-            = icon('fa', 'comment',class: 'comment-icon')
-          .product-contents__inner__commentbox__comment__btn
-            コメントする
-      .product-contents__inner__lowerbox1
-        .product-contents__inner__lowerbox1__left
-          < 前の商品
-        .product-contents__inner__lowerbox1__right
-          次の商品 >
-      .product-contents__inner__lowerbox2
-        レディースをもっと見る
-  .appbanner
-    .appbanner__inner
-      %h1.inner__title
-        だれでもかんたん、人生を変えるフリマアプリ
-      %p.inner__text
-        今すぐ無料ダウンロード！
-      .inner__btn
-        = link_to "#" do
-          = image_tag "/material/badge/Download_on_the_App_Store_Badge.svg", class: "abtn"
-        = link_to "#" do
-          = image_tag "/material/badge/google-play-badge.png", class: "gbtn"
 
-  .footer
-    %ul.footer__contents
-      %li.content
-        %h1.title
-          FURIMAについて
-        %ul.lists
-          %li.list
-            = link_to "#", class: "list" do
-              会社概要（運営会社）
-          %li.list
-            = link_to "#", class: "list" do
-              プライバシーポリシー
-          %li.list
-            = link_to "#", class: "list" do
-              FURIMA利用規約
-          %li.list
-            = link_to "#", class: "list" do
-              ポイントに関する特約
-      %li.content
-        %h1.title
-          FURIMAを見る
-        %ul.lists
-          %li.list
-            = link_to "#", class: "list" do
-              カテゴリー一覧
-          %li.list
-            = link_to "#", class: "list" do
-              ブランド一覧
-      %li.content
-        %h1.title
-          ヘルプ＆ガイド
-        %ul.lists
-          %li.list
-            = link_to "#", class: "list" do
-              FURIMAガイド
-          %li.list
-            = link_to "#", class: "list" do
-              FURIMAロゴ利用ガイドライン
-          %li.list
-            = link_to "#", class: "list" do
-              お知らせ
-    = link_to "#" do
-      = image_tag "/material/logo/logo-white.png", size: "160x46", class: "footer__logo"
+      - if user_signed_in? && current_user
+        .product-contents__inner__commentbox
+          .product-contents__inner__commentbox__warning
+            相手のことを考え丁寧なコメントを心がけましょう.
+            %br/
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          .product-contents__inner__commentbox__content
+            = form_with(model: [@item, @comment], local: true) do |form|
+              = form.text_area :content, placeholder: "コメントする", class: "product-contents__inner__commentbox__comment"
+              .testclass
+                = form.submit "SEND", class: "product-contents__inner__commentbox__comment__btn"
+          .comments
+            %h4 ＜コメント一覧＞
+            .comments__box
+              - if @comments
+                - @comments.each do |comment|
+                  .upper-comment
+                    .upper-comment__user-name
+                      = link_to comment.user.nickname, class: "link"
+                    .upper-comment__date
+                      = comment.created_at.to_s(:datetime_jp)
+                  .lower-comment
+                    - if comment.content.present?
+                      .lower-comment__content
+                        = comment.content
+                    - else 
+                      %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
 
-    %p
-      © FURIMA
 
-  = link_to new_item_path do
-    .exhibit
-      .text
-        出品する
-      = image_tag "/material/icon/icon_camera.png", class: "exhibit__icon"
+  = render partial:"shared/index_footer"
+  
 
 :javascript
-  var swiper = new Swiper('.swiper-container', {
+  var galleryThumbs = new Swiper('.gallery-thumbs', {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    loop: false,
+    freeMode: true,
+    loopedSlides: 5, //looped slides should be the same
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+  });
+  var galleryTop = new Swiper('.gallery-top', {
+    spaceBetween: 10,
+    loop: false,
+    loopedSlides: 5, //looped slides should be the same
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    thumbs: {
+      swiper: galleryThumbs,
+    },
     pagination: {
-      el: '.swiper-my-pagination',
-      clickable: true,
-      renderBullet: function (index, className) {
-        return '<span class="' + className + '">' + '<img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper-thumbnail' + (index + 1) + '.png" alt="">' + '</span>';
-      },
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true,
     },
   });
+
+

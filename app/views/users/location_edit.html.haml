@@ -1,0 +1,166 @@
+.body
+  = render partial:"shared/index_header"
+  .nav
+    %ul.nav__itemscope
+      %li.nav__itemscope__itemtype
+        = link_to root_path,class: "navgation" do
+          FURIMA
+        .nav__itemscope__itemtype__right
+          　>　
+      %li.nav__itemscope__itemtype2
+        発送元・お届け先住所変更
+  .main
+    .main__left
+      .main__left__nav
+        .nav__lists
+          %li.nav__lists__list
+            =link_to user_path(current_user.id), class: "moji" do
+              マイページ
+          %li.nav__lists__list
+            =link_to onsale_user_path(current_user.id),class: "moji" do
+              出品した商品-出品中
+          %li.nav__lists__list
+            =link_to done_user_path(current_user.id),class: "moji" do
+              出品した商品-売却済み
+          %li.nav__lists__list
+            =link_to bought_user_path(current_user.id),class: "moji" do
+              購入商品一覧
+          %li.nav__lists__list
+            =link_to like_user_path(current_user.id),class: "moji" do
+              お気に入り商品一覧
+          %li.nav__lists__list
+            =link_to location_edit_user_path,class: "moji" do
+              発送元・お届け先住所変更
+          %li.nav__lists__list
+            =link_to pay_creditcards_path,class: "moji" do
+              支払い方法
+          %li.nav__lists__list
+            =link_to profile_edit_user_path,class: "moji" do
+              本人情報の変更
+          %li.nav__lists__list
+            = link_to "ログアウト",destroy_user_session_path,method: :delete, class: 'moji'
+    .main__right
+      .main__right__top
+        発送元・お届け先住所変更
+      .main__right__form
+        = form_with(model: @location, url: location_update_user_path, method: :post, local:true) do |f|
+          = render "devise/shared/error_messages", resource: @location
+          .form-group-edit2
+            .form-group-edit2__label
+              .form-group-edit2__label__moji
+                苗字
+              %span.form-group-edit2__label__require 必須
+            = f.text_field :family_name, {class:'form-group-edit2__input'}
+          .form-group-edit2
+            .form-group-edit2__label
+              .form-group-edit2__label__moji
+                名前
+              %span.form-group-edit2__label__require 必須
+            = f.text_field :first_name, {class:'form-group-edit2__input'}
+          .form-group-edit2
+            .form-group-edit2__label
+              .form-group-edit2__label__moji
+                苗字 (カナ)
+              %span.form-group-edit2__label__require 必須
+            = f.text_field :family_name_kana, {class:'form-group-edit2__input'}
+          .form-group-edit2
+            .form-group-edit2__label
+              .form-group-edit2__label__moji
+                名前（カナ）
+              %span.form-group-edit2__label__require 必須
+            = f.text_field :first_name_kana, {class:'form-group-edit2__input'}
+          .form-group-edit2
+            .form-group-edit2__label
+              .form-group-edit2__label__moji
+                郵便番号
+              %span.form-group-edit2__label__require 必須
+            = f.text_field :postal_code, {class:'form-group-edit2__input'}
+          .form-group-edit2
+            .form-group-edit2__label
+              .form-group-edit2__label__moji
+                都道府県
+              %span.form-group-edit2__label__require 必須
+            = f.text_field :prefecture, {class:'form-group-edit2__input'}
+          .form-group-edit2
+            .form-group-edit2__label
+              .form-group-edit2__label__moji
+                市町村
+              %span.form-group-edit2__label__require 必須
+            = f.text_field :city, {class:'form-group-edit2__input'}
+          .form-group-edit2
+            .form-group-edit2__label
+              .form-group-edit2__label__moji
+                建物名
+            = f.text_field :building_name, {class:'form-group-edit2__input'}
+          .form-group-edit2
+            .form-group-edit2__label
+              .form-group-edit2__label__moji
+                電話番号
+              %span.form-group-edit2__label__require 必須
+            = f.text_field :phone_name, {class:'form-group-edit2__input'}
+          .form_submit
+            = f.submit '変更する', class: "edit-btn-default-btn"
+
+  .appbanner
+    .appbanner__inner
+      %h1.inner__title
+        だれでもかんたん、人生を変えるフリマアプリ
+      %p.inner__text
+        今すぐ無料ダウンロード！
+      .inner__btn
+        = link_to "#" do
+          = image_tag "/material/badge/Download_on_the_App_Store_Badge.svg", class: "abtn"
+        = link_to "#" do
+          = image_tag "/material/badge/google-play-badge.png", class: "gbtn"
+  .footer
+    %ul.footer__contents
+      %li.content
+        %h1.title
+          FURIMAについて
+        %ul.lists
+          %li.list
+            = link_to "#", class: "list" do
+              会社概要（運営会社）
+          %li.list
+            = link_to "#", class: "list" do
+              プライバシーポリシー
+          %li.list
+            = link_to "#", class: "list" do
+              FURIMA利用規約
+          %li.list
+            = link_to "#", class: "list" do
+              ポイントに関する特約
+      %li.content
+        %h1.title
+          FURIMAを見る
+        %ul.lists
+          %li.list
+            = link_to "#", class: "list" do
+              カテゴリー一覧
+          %li.list
+            = link_to "#", class: "list" do
+              ブランド一覧
+      %li.content
+        %h1.title
+          ヘルプ＆ガイド
+        %ul.lists
+          %li.list
+            = link_to "#", class: "list" do
+              FURIMAガイド
+          %li.list
+            = link_to "#", class: "list" do
+              FURIMAロゴ利用ガイドライン
+          %li.list
+            = link_to "#", class: "list" do
+              お知らせ
+    .footer__logo
+      =link_to "#" do
+        = image_tag "/material/logo/logo-white.png", width: "160px", height: "46px"
+    %p.logo__under
+      ©︎　FURIMA
+
+  = link_to new_item_path do
+    .exhibit
+      .text
+        出品する
+      = image_tag  "/material/icon/icon_camera.png", class: "exhibit__icon"

@@ -1,10 +1,10 @@
 .container{
-  background-color: #EEEEEE;
+  background-color: #f1f1f1;
   width: 100%;
   text-align: center;
   &__header{
     display: flex;
-    background-color: #EEEEEE;
+    background-color: #f1f1f1;
     width: 500px;
     margin: auto;
     height: 100px;
@@ -16,6 +16,7 @@
     &__progress{
       margin: auto;
       font-size: 5px;
+      display: flex;
     }
   }
   &__main{
@@ -39,11 +40,11 @@
     }
   }
   &__footer{
-   height: 200px;
-   background-color: #EEEEEE;
-   margin: auto;
-   width: 500px;
-   line-height: 200px;
+    height: 200px;
+    background-color: #f1f1f1;
+    margin: auto;
+    width: 500px;
+    line-height: 200px;
   }
 }
 
@@ -78,9 +79,7 @@
 }
 
 
-ul{
-  display: flex;
-}
+
 
 li{
   margin-left: 5px;
@@ -98,4 +97,16 @@ label{
   margin-top: 50px;
   height: 40px;
   width: 100px;
+  cursor: pointer;
+  &:hover{
+    color: gray;
+    background-color: rgb(162, 255, 255);
+  }
+}
+
+.container__header__progress__red{
+  color: red;
+}
+#user_birth_1i,#user_birth_2i,#user_birth_3i{
+  cursor: pointer;
 }

@@ -1,0 +1,58 @@
+.header
+  .header__box
+    .header__box__main
+      = link_to root_path do
+        = image_tag "/material/logo/logo.png", size: "140x40"
+      = form_with(url: items_searches_path, local: true, method: :get, class: "search__box") do |form|
+        = form.text_field :keyword, placeholder: "キーワードから探す", class: "search__box__form"
+        = form.submit "検索", class: "search__box__btn"
+    .header__box__sub
+      %ul.category-brand
+        %li.category
+          = image_tag "/material/icon/icon_category.png", size: "15x15"
+          = link_to "カテゴリー", root_path
+          %ul.firstmenu-parent
+            - @parents.each do |parent|
+              %li.parent-name
+                = link_to category_path(parent.id),class: "categories__name" do
+                  = parent.name
+                %ul.secondmenu-children
+                  - parent.children.each do |child|
+                    %li.children-name
+                      = link_to category_path(child.id),class: "categories__name" do
+                        = child.name
+                      %ul.thirdmenu-grandchildren
+                        - child.children.each do |grandchild|
+                          %li.grandchildren-name
+                            = link_to category_path(grandchild.id),class: "categories__name" do
+                              = grandchild.name
+
+        %li.brand
+          = image_tag "/material/icon/icon_brand.png", size: "15x15"
+          = link_to "ブランド一覧",root_path
+          %ul.abnc
+            - @items.first(6).each do |item|
+              %li.brand__lists
+                = link_to category_path(item.category_id),class: "brands__name" do
+                  = item.brand_name
+
+      - if user_signed_in?
+        %ul.lists__right
+          %li
+            = link_to "マイページ",user_path(current_user.id), class: 'logins'
+      - else
+        %ul.lists__right
+          %li
+            = link_to "ログイン",new_user_session_path, class: 'logins'
+          %li
+            = link_to "新規登録",new_user_registration_path, class: 'signin'
+          %li.facebook
+            = icon('fab', 'facebook-f')
+            = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post 
+          -# %li
+          -#   = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
+
+
+
+
+

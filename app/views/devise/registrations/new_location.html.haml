@@ -3,24 +3,16 @@
     %h1.container__header__logo
     =link_to image_tag("logo.png",width:"134",height:"36"), root_path 
     %ul.container__header__progress
-      %li.container__header__progress__text--active{ id: "first" }
+      %li.container__header__progress__text
         会員情報
-        .container__header__progress__round--red
-      %li.container__header__progress__text
-        お届け先住所入力
-        .container__header__progress__round    
-      %li.container__header__progress__text
-        支払い方法
-        .container__header__progress__round    
-      %li.container__header__progress__text{ id: "end" }
-        完了
-        .container__header__progress__round
+      %li.container__header__progress__red
+        住所入力
   .container__location
     .container__location__top
       住所情報登録
     .container__location__form
       = form_with(model: @location, url: locations_path, method: :post, local:true) do |f|
-        = render "devise/shared/error_messages", resource: @location
+        = render "shared/error_messages", resource: @location
         .form-group
           = f.label :苗字
           %span.form-group__require 必須
@@ -51,13 +43,13 @@
           = f.text_field :city, {class:'form-group__input'}
         .form-group
           = f.label :建物名
-          %span.form-group__require 必須
+          %span.form-group__require
           = f.text_field :building_name, {class:'form-group__input'}
         .form__group
           = f.label :電話番号
           %span.form-group__require 必須
           = f.text_field :phone_name, {class:'form-group__input'}
         .form_submit
-          = f.submit '登録する', class: "btn-default btn"
+          = f.submit '登録する', class: "location-btn"
   .container__footer
     = image_tag("logo-white.png",width:"134",height:"36")

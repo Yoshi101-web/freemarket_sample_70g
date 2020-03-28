@@ -1,5 +1,7 @@
 ja:
   activerecord:
+    models:
+      location: 住所
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -205,7 +207,7 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   attributes:
-    image: 商品画像
+    images: 画像
     item_name: 商品名
     description: 商品の説明
     category_id: カテゴリー
@@ -214,3 +216,17 @@ ja:
     prefecture_id: 配送元の地域
     shipping_days: 発送までの日数
     price: 価格
+    user_family_name: 姓（全角）
+    user_first_name: 名（全角）
+    user_family_name_kana: セイ（全角）
+    user_first_name_kana: メイ（全角）
+    family_name: 姓（全角）名（全角）
+    first_name: 名（全角）
+    family_name_kana: セイ（全角）
+    first_name_kana: メイ（全角）
+    postal_code: 郵便番号
+    prefecture: 都道府県
+    city: 市町村
+    building_name: 建物名
+    phone_name: 電話番号
+    birth: 生年月日

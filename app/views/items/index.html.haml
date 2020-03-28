@@ -1,33 +1,5 @@
-.header
-  .header__box
-    .header__box__main
-      = link_to "#" do
-        = image_tag "/material/logo/logo.png", size: "140x40"
-      = form_with url: "#", class: "search__box" do |f|
-        = f.text_field :content, class: 'search__box__form', placeholder: ' キーワードから探す'
-      = link_to "#" do
-        = image_tag "/material/icon/icon-search 1.png", size: "24x24", class: "search__box__btn"
-    .header__box__sub
-      %ul.lists__left
-        %li
-          = link_to "#",class: "category" do
-            カテゴリー
-        %li
-          = link_to "#",class: "brand" do
-            ブランド
 
-      - if user_signed_in?
-        %ul.lists__right
-          %li
-            = link_to "ログアウト",destroy_user_session_path,method: :delete, class: 'login'
-          %li
-            = link_to "マイページ",user_path(current_user.id), class: 'login'
-      - else
-        %ul.lists__right
-          %li
-            = link_to "ログイン",new_user_session_path, class: 'login'
-          %li
-            = link_to "新規登録",new_user_registration_path, class: 'signin'
+= render partial: "shared/index_header"
 
 
 .main
@@ -41,9 +13,9 @@
         %br/
         フリマアプリです
       .content__btn
-        = link_to "#" do
+        = link_to "https://www.apple.com/jp/ios/app-store" do
           = image_tag "/material/badge/Download_on_the_App_Store_Badge.svg", class: "abtn"
-        = link_to "#" do
+        = link_to "https://play.google.com/store?hl=ja" do
           = image_tag "/material/badge/google-play-badge.png", class: "gbtn"
 
 
@@ -101,9 +73,9 @@
         %br/
         ほしかったあの商品に出会えるかもしれません。
       .content__btn
-        = link_to "#" do
+        = link_to "https://www.apple.com/jp/ios/app-store" do
           = image_tag "/material/badge/Download_on_the_App_Store_Badge.svg", class: "abtn"
-        = link_to "#" do
+        = link_to "https://play.google.com/store?hl=ja" do
           = image_tag "/material/badge/google-play-badge.png", class: "gbtn"
 
   .top__key__features
@@ -138,7 +110,7 @@
           新規投稿商品
         .product__lists
 
-          - @items.last(3).each do |item|
+          - @items.first(8).each do |item|
             - item.images.first(1).each do |image|
               .product__list
                 - if item.item_purchaser_id.blank?
@@ -151,129 +123,17 @@
                         = item.item_name
                       .item__details
                         %ul
-                          %li
+                          %li.flex-two
                             .category-yen
                               = item.price
-                          %li
-                            ★2
+                          %li.like-counts
+                            - if item.likes_count.blank?
+                              = 0
+                            -else
+                              = item.likes_count
                         %p
                           (税込)
 
 
-    .pickup__container__brand
-      .head
-        ピックアップブランド
-      .product
-        .product__title
-          アーカイバー
-        .product__lists
-          .product__list
-            = link_to "#" do
-              .product__list__img
-              .product__list__text
-                .item__name
-                  サンタ
-                .item__details
-                  %ul
-                    %li
-                      3000円
-                    %li
-                      ★4
-                  %p
-                    (税込)
 
-          .product__list
-            = link_to "#" do
-              .product__list__img
-              .product__list__text
-                .item__name
-                  サンタ
-                .item__details
-                  %ul
-                    %li
-                      3000円
-                    %li
-                      ★5
-                  %p
-                    (税込)
-              
-          .product__list
-            = link_to "#" do
-              .product__list__img
-              .product__list__text
-                .item__name
-                  サンタ
-                .item__details
-                  %ul
-                    %li
-                      3000円
-                    %li
-                      ★6
-                  %p
-                    (税込)
-
-
-.appbanner
-  .appbanner__inner
-    %h1.inner__title
-      だれでもかんたん、人生を変えるフリマアプリ
-    %p.inner__text
-      今すぐ無料ダウンロード！
-    .inner__btn
-      = link_to "#" do
-        = image_tag "/material/badge/Download_on_the_App_Store_Badge.svg", class: "abtn"
-      = link_to "#" do
-        = image_tag "/material/badge/google-play-badge.png", class: "gbtn"
-        
-.footer
-  %ul.footer__contents
-    %li.content
-      %h1.title
-        FURIMAについて
-      %ul.lists
-        %li.list
-          = link_to "#", class: "list" do
-            会社概要（運営会社）
-        %li.list
-          = link_to "#", class: "list" do
-            プライバシーポリシー
-        %li.list
-          = link_to "#", class: "list" do
-            FURIMA利用規約
-        %li.list
-          = link_to "#", class: "list" do
-            ポイントに関する特約
-    %li.content
-      %h1.title
-        FURIMAを見る
-      %ul.lists
-        %li.list
-          = link_to "#", class: "list" do
-            カテゴリー一覧
-        %li.list
-          = link_to "#", class: "list" do
-            ブランド一覧
-    %li.content
-      %h1.title
-        ヘルプ＆ガイド
-      %ul.lists
-        %li.list
-          = link_to "#", class: "list" do
-            FURIMAガイド
-        %li.list
-          = link_to "#", class: "list" do
-            FURIMAロゴ利用ガイドライン
-        %li.list
-          = link_to "#", class: "list" do
-            お知らせ
-  = link_to "#" do
-    = image_tag "/material/logo/logo-white.png", size: "160x46", class: "footer__logo"
-  %p
-    © FURIMA
-
-  = link_to new_item_path do
-    .exhibit
-      .text
-        出品する
-      = image_tag "/material/icon/icon_camera.png", class: "exhibit__icon"
-
+= render partial: "shared/index_footer"

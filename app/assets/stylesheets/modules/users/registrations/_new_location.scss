@@ -4,9 +4,26 @@
   background-color: white;
   height: 800px;
   margin: auto;
+  position: relative;
   &__top{
     height: 100px;
     line-height: 100px;
     font-weight: bold;
+  }
+}
+
+.location-btn{
+  background-color: #66FFFF;
+  color: black;
+  margin-top: 50px;
+  height: 40px;
+  width: 100px;
+  position: absolute;
+  top: 700px;
+  right: 200px;
+  cursor: pointer;
+  &:hover{
+    color: gray;
+    background-color: rgb(162, 255, 255);
   }
 }

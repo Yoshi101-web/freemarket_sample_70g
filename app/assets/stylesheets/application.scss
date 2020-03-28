@@ -1,24 +1,37 @@
 @import "reset";
+@import "modules/mixin";
 @import "error_messages";
 @import "modules/item";
-@import "modules/image";
-@import "modules/comment";
-@import "modules/brand";
-@import "modules/location";
-@import "modules/profile";
+@import "modules/items/new";
 @import "modules/users/registrations/new";
 @import "modules/users/registrations/new_location";
+@import "modules/users/registrations/create_location";
 @import "modules/users/sessions";
 @import "modules/items/show_swiper";
 @import "modules/items/show";
+@import "modules/items/update";
 @import "modules/items/new";
+@import "modules/items/edit";
 @import "modules/items/new_imageupload";
 @import "modules/items/confirm";
 @import "modules/user";
 @import "modules/users/onsale";
+@import "modules/users/bought";
+@import "modules/users/like";
+@import "modules/users/location_edit";
+@import "modules/users/profile_edit";
+@import "modules/users/done";
 @import "modules/creditcards/new";
 @import "modules/creditcards/show";
 @import "modules/purchases/index";
 @import "modules/purchases/done";
+@import "modules/categories/show";
+@import "modules/items/search";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+
+#error_explanation{
+  color: red;
+  font-size: 5px;
+}

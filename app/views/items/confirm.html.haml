@@ -1,21 +1,22 @@
-.body
-  .items-new-header
+.body-confirm
+  .items-confirm-header
     =link_to root_path do
       = image_tag "/logo.png", size: "185x49"
-
-
   .main-confirm-contents
     = form_with url:"#" do |f|
       .main-confirm-content
         .main-confirm-content__header
           %h2 購入内容の確認
         .main-confirm-content__buy-item
-          =image_tag "https://cdn.pixabay.com/photo/2014/09/16/01/19/girl-447701_1280.jpg", class: "main-confirm-content__buy-item__photo"
+          = image_tag "#{@item.images.first.image}", alt: "テスト", size: "100x100"
           .main-confirm-content__buy-item__group
             .main-confirm-content__buy-item__group__item-name
-              %h3 ラストサンタ ラストサンタ ラストサンタ ラストサンタ
+              %h3 
+              = @item.item_name
             .main-confirm-content__buy-item__group__item-price
-              %h3 ¥3,000
+              %h3
+                ¥
+                = @item.price
             .main-confirm-content__buy-item__group__shipping-fee-payer
               %h3 （税込）送料込み
         .main-confirm-content__payment
@@ -23,30 +24,26 @@
             .main-confirm-content__payment__group__price-point
               .main-confirm-content__payment__group__price-point__price
                 %h2 支払い金額
-                %h2 ¥3,000
-              .main-confirm-content__payment__group__price-point__point
-                %h3 ■ポイントを使用 (所持ポイント: P0)
+                %h2
+                  ¥
+                  = @item.price
             .main-confirm-content__payment__group__way
               %h2 支払い方法
-              = link_to pay_creditcards_path do
-                %h3 登録してください
+              = link_to user_path(current_user.id) do
+                %h3 マイページより登録してください
             .main-confirm-content__payment__group__location
               %h2 配送先
-              %h3 登録してください
+              %h3
+                〒
+                = @location.postal_code
+                %br/
+                = @location.prefecture
+                = @location.city
+                = @location.building_name
+                %br/
+                = current_user.nickname
             .main-confirm-content__payment__group__submit
-              = link_to "購入する", purchases_path, method: :get, class: "confirm-submit"
+              = link_to "購入する", purchase_path(@item.id), method: :get, class: "confirm-submit"
               = link_to "もどる", :back, class: "return-btn"
           
-  .lower-content
-    .legal-info-box
-      .hoge
-        = link_to "#" do
-          .privacy-policy-box プライバシーポリシー
-        = link_to "#" do  
-          .terms-box FURIMA利用規約
-        = link_to "#" do
-          .specified-commercial-transaction-act-box 特定商取引に関する表記
-    .footer__logo
-      .logo-img
-        = image_tag "/logo-white.png", size: "160x46"
-      .logo-text ©FURIMA
+  = render partial:"shared/items_new_footer"

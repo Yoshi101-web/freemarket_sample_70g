@@ -1,0 +1,23 @@
+.update-body {
+  background-color: gainsboro;
+  
+  .success {
+    width: 700px;
+    height: 100px;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 300px;
+    &__message {
+      padding-top: 15px;
+      margin-bottom: 20px;
+    }
+    &__btn {
+      text-decoration: none;
+      color: #3CCACE;
+      border: 1px solid;
+      padding: 10px;
+    }
+  }
+}

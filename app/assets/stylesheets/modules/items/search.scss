@@ -1,0 +1,116 @@
+.search__main {
+  background-color: rgb(235, 235, 235);
+  display: flex;
+  padding-left: 40px;
+  .left__search__box {
+    background-color: white;
+    height: 690px;
+    width: 210px;
+    padding: 20px;
+    border: solid .5px rgb(218, 218, 218);
+    margin-bottom: 10px;
+    .sort_lists {
+      .sort_link {
+        display: block;
+        border: solid .5px rgb(218, 218, 218);
+      }
+    }
+    .keyword__label {
+      font-size: 15px;
+    }
+    .keyword {
+      display: block;
+    }
+    .price__label {
+      font-size: 15px;
+      display: block;
+    }
+    .price__one {
+      height: 30px;
+      width: 70px;
+    }
+    .price__two {
+      height: 30px;
+      width: 70px;
+    }
+    .condition__label {
+      font-size: 15px;
+      display: block;
+    }
+    .condition {
+      display: block;
+    }
+    .shipping_fee_payer__label {
+      font-size: 15px;
+      display: block;
+    }
+    .shipping_fee_payer {
+      display: block;
+    }
+    .ransack_submit {
+      height: 50px;
+      width: 140px;
+      margin: 15px auto;
+      display: block;
+      background-color: red;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      &:hover{
+        background-color: rgb(255, 89, 89);
+      }
+    }
+  }
+
+
+
+  .right__search__box {
+    .search__content {
+      padding: 25px;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(4, 200px);
+      &__list {
+        &__img {
+          height: 150px;
+          width: 200px;
+        }
+        &__text {
+          font-size: 16px;
+          padding: 16px;
+          color: #333;
+          background-color: white;
+          .item__name {
+            margin-left: 0px;
+            text-align: left;
+          }
+          .item__details {
+            
+            ul {
+              display: flex;
+              justify-content: space-between;
+              li{
+              }
+              .item__yen{
+                &::before{
+                  content: '¥';
+                }
+              }
+              .like_counts{
+                &::before{
+                  font-family: "Font Awesome 5 Free";
+                  font-weight: bold;
+                  content: '\f004';
+                  color: rgb(255, 112, 195);
+                }
+              }
+            }
+            p {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}

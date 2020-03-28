@@ -1,38 +1,9 @@
 .body
-  .header
-    .header__box
-      .header__box__main
-        =link_to root_path do
-          = image_tag "/material/logo/logo.png", class: 'logo'
-        = form_with url: "#", class: "search__box" do |f|
-          = f.text_field :content, class: 'search__box__form', placeholder: ' キーワードから探す'
-        =link_to "#" do
-          = image_tag "/material/icon/icon-search 1.png", class: 'search__box__btn'
-      .header__box__sub
-        %ul.lists__left
-          %li
-            = link_to "#",class: "category" do
-              カテゴリー
-          %li
-            = link_to "#",class: "brand" do
-              ブランド
-        %ul.lists__right
-          %li
-            = link_to "#",class: "like__list" do
-              いいね！一覧
-          %li
-            = link_to "#",class: "info__list" do
-              お知らせ
-          %li
-            = link_to "#",class: "todo__list" do
-              やることリスト
-          %li
-            = link_to "#",class: "mypage" do
-              マイページ
+  = render partial:"shared/index_header"
   .nav
     %ul.nav__itemscope
       %li.nav__itemscope__itemtype
-        = link_to "#",class: "navgation" do
+        = link_to root_path,class: "navgation" do
           FURIMA
         .nav__itemscope__itemtype__right
           　>　
@@ -43,169 +14,69 @@
       .main__left__nav
         .nav__lists
           %li.nav__lists__list
-            =link_to "#",class: "moji" do
+            =link_to user_path(current_user.id), class: "moji" do
               マイページ
           %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              お知らせ
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              やることリスト
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              いいね！一覧
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              出品する
-          %li.nav__lists__list
-            =link_to onsale_users_path,class: "moji" do
+            =link_to onsale_user_path,class: "moji" do
               出品した商品-出品中
           %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              出品した商品-取引中
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
+            =link_to done_user_path(current_user.id),class: "moji" do
               出品した商品-売却済み
           %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              購入した商品-取引中
+            =link_to bought_user_path(current_user.id),class: "moji" do
+              購入商品一覧
           %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              購入した商品-過去の取引
+            =link_to like_user_path(current_user.id),class: "moji" do
+              お気に入り商品一覧
           %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              ニュース一覧
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              評価一覧
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              ガイド
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              お問い合わせ
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              売上・振込申請
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              ポイント
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              プロフィール
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
+            =link_to location_edit_user_path,class: "moji" do
               発送元・お届け先住所変更
           %li.nav__lists__list
             =link_to pay_creditcards_path,class: "moji" do
               支払い方法
           %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              メール/パスワード
+            =link_to profile_edit_user_path,class: "moji" do
+              本人情報の変更
           %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              本人情報
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
-              電話番号の確認
-          %li.nav__lists__list
-            =link_to "#",class: "moji" do
+            = link_to destroy_user_session_path,method: :delete, class: 'moji' do
               ログアウト
     .main__right
+      .main__right__head
+        プロフィール
       .main__right__userIcon
-        =link_to "#",class: "button" do
+        .button
           .button__top
-            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", class: "button__top__icon"
           .button__name
-            ほし
+            = current_user.nickname
           .button__number
             .button__number__box
-              .box1
-                評価 0
-              .box2
-                出品数 0
-      .main__right__tabTodo
-        .tabTodo
-          .tabTodo__info
-            お知らせ
-          .tabTodo__todo-lists
-            やることリスト
-        .tabContent
-          .tabContent__info
-          .tabContent__go-lists
-            =link_to "#",class: "go-list" do
-              一覧を見る
-      .main__right__itemInfo
-        .tab-head
-          購入した商品
-        %ul.mypage__tabs
-          %li.mypage__tabs__active
-            =link_to "#",class: "mypage__tabs__active__moji" do
-              取引中
-          %li.mypage__tabs__past
-            =link_to "#",class: "mypage__tabs__past__moji" do
-              過去の取引
-        .tab-content
-  .appbanner
-    .appbanner__inner
-      %h1.inner__title
-        だれでもかんたん、人生を変えるフリマアプリ
-      %p.inner__text
-        今すぐ無料ダウンロード！
-      .inner__btn
-        = link_to "#" do
-          = image_tag "/material/badge/Download_on_the_App_Store_Badge.svg", class: "abtn"
-        = link_to "#" do
-          = image_tag "/material/badge/google-play-badge.png", class: "gbtn"
-  .footer
-    %ul.footer__contents
-      %li.content
-        %h1.title
-          FURIMAについて
-        %ul.lists
-          %li.list
-            = link_to "#", class: "list" do
-              会社概要（運営会社）
-          %li.list
-            = link_to "#", class: "list" do
-              プライバシーポリシー
-          %li.list
-            = link_to "#", class: "list" do
-              FURIMA利用規約
-          %li.list
-            = link_to "#", class: "list" do
-              ポイントに関する特約
-      %li.content
-        %h1.title
-          FURIMAを見る
-        %ul.lists
-          %li.list
-            = link_to "#", class: "list" do
-              カテゴリー一覧
-          %li.list
-            = link_to "#", class: "list" do
-              ブランド一覧
-      %li.content
-        %h1.title
-          ヘルプ＆ガイド
-        %ul.lists
-          %li.list
-            = link_to "#", class: "list" do
-              FURIMAガイド
-          %li.list
-            = link_to "#", class: "list" do
-              FURIMAロゴ利用ガイドライン
-          %li.list
-            = link_to "#", class: "list" do
-              お知らせ
-    .footer__logo
-      =link_to "#" do
-        = image_tag "/material/logo/logo-white.png", width: "160px", height: "46px"
-    %p.logo__under
-      ©︎　FURIMA
 
-  = link_to new_item_path do
-    .exhibit
-      .text
-        出品する
-      = image_tag  "/material/icon/icon_camera.png", class: "exhibit__icon"
+      
+      .main__right__profile
+        .main__right__profile__box
+          .main__right__profile__box__list1
+            .main__right__profile__box__list1__label
+              苗字
+            .main__right__profile__box__list1__content
+              = @user.user_family_name
+          .main__right__profile__box__list
+            .main__right__profile__box__list__label
+              名前
+            .main__right__profile__box__list__content
+              = @user.user_first_name
+          .main__right__profile__box__list
+            .main__right__profile__box__list__label
+              苗字（かな）
+            .main__right__profile__box__list__content
+              = @user.user_family_name_kana
+          .main__right__profile__box__list
+            .main__right__profile__box__list__label
+              名前（かな）
+            .main__right__profile__box__list__content
+              = @user.user_first_name_kana
+          .main__right__profile__box__list
+            .main__right__profile__box__list__label
+              誕生日
+            .main__right__profile__box__list__content
+              = @user.birth
+  = render partial: "shared/index_footer"

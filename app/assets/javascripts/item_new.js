@@ -1,10 +1,14 @@
 $(function(){
+  
+
+  // $('input[type=file]').css('display', 'none');
   //DataTransferオブジェクトで、データを格納する箱を作る
+  
   var dataBox = new DataTransfer();
   //querySelectorでfile_fieldを取得
   var file_field = document.querySelector('input[type=file]')
   //fileが選択された時に発火するイベント
-  $('#img-file').change(function(){
+  $('.img-file').change(function(){
     //選択したfileのオブジェクトをpropで取得
     var files = $('input[type="file"]').prop('files')[0];
     $.each(this.files, function(i, file){
@@ -18,7 +22,7 @@ $(function(){
 
       var num = $('.item-image').length + 1 + i
       fileReader.readAsDataURL(file);
-　　　 //画像が10枚になったら超えたらドロップボックスを削除する
+      //画像が10枚になったら超えたらドロップボックスを削除する
       if (num == 10){
         $('#image-box__container').css('display', 'none')   
       }

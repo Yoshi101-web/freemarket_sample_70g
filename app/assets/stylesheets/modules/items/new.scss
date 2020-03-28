@@ -5,7 +5,7 @@
 
   .items-new-header {
     height: 128px;
-    background-color: #EEEEEE;
+    background-color: #f1f1f1;
 
     a{
       margin:0 auto;
@@ -20,11 +20,11 @@
     }
   }
   .main-content {
-    background-color: #EEEEEE;
+    background-color: #f1f1f1;
     
     &__box {
       margin: 0 auto;
-      background-color: #EEEEEE;
+      background-color: #f1f1f1;
       height: 100%;
       width: 700px;
 
@@ -86,13 +86,12 @@
               &__operation--delete{
                 font-weight: bold;
                 color: rgb(39, 180, 192);
-                
                 text-align: center;
                 cursor: pointer;
               }
             }
             #image-box__container {
-              background-color: #EEEEEE;
+              background-color: #f1f1f1;
               border: dashed 2px #CCCCCC;
               text-align: center;
               position: relative;
@@ -196,14 +195,14 @@
           margin: 20px 40px;
           line-height: 1.5;
           outline: none;
-          border-color: #CCCCCC;
+          border-color: #f1f1f1;
           box-sizing: border-box;
           padding: 7px 30px 7px 10px;
         }
       }
 //-------------商品詳細-------------------
       &__item-detail-content {
-        height: 730px;
+        height: 720px;
         width: 700px;
         background-color: #FFF;
         margin-top: 2px;
@@ -226,7 +225,7 @@
             display: flex;
             padding-top: 10px;
             margin-bottom: 20px;
-
+            
             .index {
               font-size: 14px;
               font-weight: bold;
@@ -244,6 +243,11 @@
               text-align: center;
             }
           }
+          .product_category-select{
+            .category_select-box{
+              cursor: pointer;
+            }
+          }
           select {
             -webkit-appearance: none; 
             -moz-appearance: none; 
@@ -253,7 +257,7 @@
             padding: 7px 30px 7px 10px;
             font-size: 16px; 
             border-radius: 4px; 
-            border-color: #CCCCCC;         
+            border-color: #f1f1f1;         
             background-image: url(/download.png);
             background-repeat: no-repeat;
             background-size: 20px 10px;
@@ -277,7 +281,7 @@
               font-size: 12px;
               font-weight: bold;
               margin-left: 8px;
-              background-color: #CCCCCC;
+              background-color: #f1f1f1;
               color: white;
               text-align: center;
             }
@@ -304,7 +308,7 @@
               font-size: 12px;
               font-weight: bold;
               margin-left: 8px;
-              background-color: #CCCCCC;
+              background-color: #f1f1f1;
               color: white;
               text-align: center;
             }
@@ -338,6 +342,9 @@
           }
           .condetion-form-field {
             margin-top: 20px;
+            #item_condition{
+              cursor: pointer;
+            }
           }       
         }
       }
@@ -389,6 +396,11 @@
               text-align: center;
             }
           }
+          .shipping-fee-payer-form-field{
+            #item_shipping_fee_payer{
+              cursor: pointer;
+            }
+          }
           select {
             -webkit-appearance: none; 
             -moz-appearance: none; 
@@ -398,7 +410,7 @@
             padding: 7px 30px 7px 10px;
             font-size: 16px; 
             border-radius: 4px; 
-            border-color: #CCCCCC;         
+            border-color: #f1f1f1;         
             background-image: url(/download.png);
             background-repeat: no-repeat;
             background-size: 20px 10px;
@@ -428,6 +440,9 @@
               text-align: center;
             }
           }  
+          #item_prefecture_id{
+            cursor: pointer;
+          }
         }
           .shipping-fee-payer-box {
             height: 19px;
@@ -435,6 +450,11 @@
             display: flex;
             padding-top: 10px;
             margin-bottom: 20px;
+          }
+          .shipping-days-form-field{
+            #item_shipping_days{
+              cursor: pointer;
+            }
           }
       }
 //-------------販売価格について-------------------
@@ -522,7 +542,7 @@
           margin: 40px;
           color: #333333;
           height: 50px;
-          border-bottom: solid 1px #CCCCCC;         
+          border-bottom: solid 1px #f1f1f1;         
         }
 
         .sales-profit-info {
@@ -543,10 +563,9 @@
           outline: none;
           border-style: none;
           margin: 20px 170px;
-          cursor: pointer;
+          cursor: pointer; 
         }
-
-        .return-btn {
+        .new-return-btn {
           background-color: #DDDDDD;
           font-weight: bold;
           width: 360px;
@@ -557,6 +576,8 @@
           margin: 5px 170px;
           cursor: pointer;
         }
+
+        
 
         .terms-info-box {
           font-size: 12px;
@@ -569,7 +590,7 @@
   .lower-content {
     height: 220px;
     bottom: 0;
-    background-color: #EEEEEE;
+    background-color: #f1f1f1;
     padding: 40px 0 41px;
     
     .legal-info-box {
@@ -587,11 +608,11 @@
           color: #333333;
 
           .privacy-policy-box {
-            margin-right: 50px;   
+            margin-right: 75px;   
           }
     
           .terms-box {
-            margin-right: 50px;    
+            margin-right: 75px;    
           }
         }
       }

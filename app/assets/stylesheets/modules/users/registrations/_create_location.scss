@@ -1,0 +1,39 @@
+.create_location{
+
+  .create_location__contents{
+    width: 700px;
+    
+    margin: 0 auto;
+    .create_location__content{
+      height: 300px;
+      margin-top: 100px;
+      background-color: rgb(110, 182, 176);
+      padding: 50px 80px;
+      border-radius: 10px;
+      h2{
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom:20px;
+      }
+      a{
+        margin-top:100px;
+        display: block;
+        margin: 0 auto;
+        border-bottom: 2px solid rgba(255, 255, 255,0);
+      }
+      .back-to-top{
+        width: 210px;
+        color: rgb(231, 231, 231);
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+        border-bottom: 4px solid rgba(255, 255, 255,0);
+        &:hover{
+          color: white;
+          border-bottom: 4px solid rgba(255, 255, 255,.8);
+        }
+      }
+    }
+  }
+}

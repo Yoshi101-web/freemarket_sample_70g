@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
   }
   devise_scope :user do
@@ -9,10 +10,16 @@ Rails.application.routes.draw do
   end
   
   root "items#index"
+  namespace :items do
+    resources :searches, only: :index
+  end
   resources :items do
-    collection do
+    member do
       get :confirm
-      get :done
+      post   '/like/:item_id' => 'likes#like',   as: 'like'
+      delete '/like/:item_id' => 'likes#unlike', as: 'unlike'
+    end
+    collection do
       get :category_children
       get :category_grandchildren
     end
@@ -20,10 +27,17 @@ Rails.application.routes.draw do
     resources :images, only: [:index,:create]
   end
   resources :users, only: [:show] do
-    collection do
+    member do
+      get :profile_edit
+      post :profile_update
+      get :location_edit
+      post :location_update
       get :onsale
+      get :done
+      get :bought
+      get :like
     end
-    resources :profile, only: :index
+    resources :profile, only: [:index]
     resources :creditcards, only: :index
     resources :location, only: :index
   end
@@ -35,10 +49,11 @@ Rails.application.routes.draw do
     end
   end
   resources :purchases, only: [:index] do
-    collection do
+    member do
       get 'index', to: 'purchases#index'
-      post 'pay', to: 'purchases#pay'
+      get 'pay', to: 'purchases#pay'
       get 'done', to: 'purchases#done'
     end
   end
+  resources :categories, only: [:show]
 end

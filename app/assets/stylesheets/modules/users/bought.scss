@@ -1,0 +1,76 @@
+.main__right {
+  height: 865px;
+  width: 700px;
+  &__bought-title  {
+    width: 660px;
+    height: 50px;
+    font-weight: bold;
+    padding: 20px;
+    background-color: $whiteColer;
+    border-bottom: 1px solid $grayColer;
+  }
+  &__tabTodo {
+    width: 700px;
+    height: 76px;
+    .tabContent {
+      height: 81px;
+      background-color: $whiteColer;
+      &__info {
+        width: 700px;
+        height: 81px;
+        border-bottom: 1px solid $thingrayColer;
+      }
+      &__lists {
+        width: 700px;
+        height: 70px;
+        background-color: $whiteColer;
+        display: flex;
+        .items-box_photo__sold {
+          width: 0;
+          height: 0;
+          border-top: 20px solid $redColer;
+          border-right: 20px solid transparent;
+          border-bottom: 20px solid transparent;
+          border-left: 20px solid $redColer;
+          z-index: 100;
+          position: relative;
+          top: -76px;
+          &__inner{
+            transform: rotate(-45deg);
+            font-size: 1px;
+            margin: -5px 1px 0px -20px;
+            color: $whiteColer;
+            letter-spacing: 1px;
+            font-weight: 600;
+          }
+        }
+      }
+
+      &__product-name {
+        color: $blackColer;
+        margin-left: 2px;
+        .bought-sign {
+          width: 40px;
+          height: 16px;
+          background-color: #FF773E;
+          font-size: 8px;
+          font-weight: bold;
+          color: $whiteColer;
+          line-height: 16px;
+          text-align: center;
+          margin-left: 2px;
+        }
+        .like-counts{
+          font-size: 13px;
+          margin-top: 4px;
+          &::before{
+            font-family: "Font Awesome 5 Free";
+            font-weight: bold;
+            content: '\f004';
+            color: rgb(255, 112, 195);
+          }
+        }
+      }
+    }
+  }
+}

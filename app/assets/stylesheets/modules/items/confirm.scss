@@ -1,157 +1,210 @@
-$bg-border-color: #EEEEEE;
+$bg-border-color: #f1f1f1;
 
-.main-confirm-contents{
-  background-color: $bg-border-color;
-  .main-confirm-content{
-    height: 800px;
-    width: 700px;
-    background-color: white;
-    margin: 0 auto;
+.body-confirm {
 
-    &__header{
-      height: 90px;
-      width: 100%;
-      border-bottom: 1px solid $bg-border-color;
-      h2{
-        font-size:23px;
-        font-weight: bold;
-        text-align: center;
-        line-height: 90px;
-      }
+  .items-confirm-header {
+    height: 128px;
+    background-color: #f1f1f1;
+
+    a{
+      margin:0 auto;
+      display:block;
+      width: 200px;
+      padding-top: 35px;
     }
-    &__buy-item{
-      height: 100px;
-      width: 100%;
-      border-bottom: 1px solid $bg-border-color;
-      padding: 20px 0px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    &__logo {
+      margin:0 auto;
+      display:block;
 
-      &__photo{
-        height: 60px;
-        width: 60px;
+    }
+  }
+
+  .main-confirm-contents{
+    background-color: $bg-border-color;
+    .main-confirm-content{
+      height: 850px;
+      width: 700px;
+      background-color: white;
+      margin: 0 auto;
+
+      &__header{
+        height: 90px;
+        width: 100%;
+        border-bottom: 1px solid $bg-border-color;
+        h2{
+          font-size:23px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 90px;
+        }
       }
-      &__group{
-        margin-left: 15px;
-        width: 280px;
-        &__item-name{
-          font-size: 14px;
-          margin-bottom: 5px;
-        }
-        &__item-price{
-          font-size: 13px;
-          display: inline-block;
-          float: left;
-          h3{
-            font-weight: bold;
-            display: inline-block;
+      &__buy-item{
+        height: 100px;
+        width: 100%;
+        border-bottom: 1px solid $bg-border-color;
+        padding: 20px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__group{
+          margin-left: 15px;
+          width: 280px;
+          &__item-name{
+            font-size: 14px;
+            margin-bottom: 5px;
           }
-        }
-        &__shipping-fee-payer{
-          float: left;
-          margin-left: 5px;
-          h3{
+          &__item-price{
             font-size: 13px;
-            font-weight: bold;
+            display: inline-block;
+            float: left;
+            h3{
+              font-weight: bold;
+              display: inline-block;
+            }
           }
-        }
-      }
-    }
-    &__payment{
-      height: 100%;
-      width: 100%;
-      padding: 30px 0px;
-
-      &__group{
-        height: 100%;
-        width: 400px;
-        margin: 0 auto;
-
-        &__price-point{
-          width: 100%;
-          padding: 10px 0px;
-          border-bottom: 2px solid $bg-border-color;
-          
-          &__price{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            h2{
-              font-size: 23px;
+          &__shipping-fee-payer{
+            float: left;
+            margin-left: 5px;
+            h3{
+              font-size: 13px;
               font-weight: bold;
             }
           }
-          &__point{
-            color: rgb(182, 182, 182);
+        }
+      }
+      &__payment{
+        height: 100%;
+        width: 100%;
+        padding: 30px 0px;
+
+        &__group{
+          height: 100%;
+          width: 400px;
+          margin: 0 auto;
+
+          &__price-point{
+            width: 100%;
+            padding: 10px 0px;
+            border-bottom: 2px solid $bg-border-color;
+            
+            &__price{
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              h2{
+                font-size: 23px;
+                font-weight: bold;
+              }
+            }
+          }
+          &__way{
+            padding: 30px 0px;
+            border-bottom: 2px solid $bg-border-color;
+            h2{
+              font-size: 15px;
+              font-weight: bold;
+            }
             h3{
               font-size: 14px;
+              margin-top: 5px;
+              color: rgb(75, 168, 211);
+              &::before{
+                content: '\f055';
+                font-family: "Font Awesome 5 Free";
+                font-weight: bold;
+              }
             }
           }
-        }
-        &__way{
-          padding: 30px 0px;
-          border-bottom: 2px solid $bg-border-color;
-          h2{
-            font-size: 15px;
-            font-weight: bold;
-          }
-          h3{
-            font-size: 14px;
-            margin-top: 5px;
-            color: rgb(75, 168, 211);
-            &::before{
-              content: '\f055';
-              font-family: "Font Awesome 5 Free";
+          &__location{
+            padding: 30px 0px;
+            border-bottom: 2px solid $bg-border-color;
+            h2{
+              font-size: 15px;
               font-weight: bold;
+              
+            }
+            h3{
+              font-size: 14px;
+              margin-top: 5px;
             }
           }
-        }
-        &__location{
-          padding: 30px 0px;
-          border-bottom: 2px solid $bg-border-color;
-          h2{
-            font-size: 15px;
-            font-weight: bold;
-            
-          }
-          h3{
-            font-size: 14px;
-            margin-top: 5px;
-            color: rgb(75, 168, 211);
-            &::before{
-              content: '\f055';
-              font-family: "Font Awesome 5 Free";
+          &__submit{
+            height: 60px;
+            // width: 100%;
+            margin-top:50px;
+            margin: 0 auto;
+
+            .confirm-submit{
+              display: block;
+              width: 360px;
+              height: 48px;
+              line-height: 48px;
+              text-align: center;
+              margin-top: 50px;
+              color: white;
               font-weight: bold;
-              color: invert;
+              border-radius: 4px;
+              background-color: red;
+            }
+            .return-btn {
+              display: block;
+              background-color: #DDDDDD;
+              font-weight: bold;
+              width: 360px;
+              height: 48px;
+              line-height: 48px;
+              text-align: center;
+              border-radius: 4px;
+              outline: none;
+              border-style: none;
+              margin-top: 30px;
             }
           }
         }
-        &__submit{
-          height: 60px;
-          width: 100%;
-          margin-top:50px;
-          margin: 0 auto;
-          .confirm-submit{
-            height: 100%;
-            width: 100%;
-            margin-top: 40px;
-            color: white;
-            font-weight: bold;
-            border-radius: 4px;
-            background-color: red;
+      }
+    }
+  }
+  .lower-content {
+    height: 220px;
+    bottom: 0;
+    background-color: #f1f1f1;
+    padding: 40px 0 41px;
+    
+    .legal-info-box {
+      width: 100%;      
+      font-size: 12px;
+
+      .hoge {
+        text-align: center;
+        display: flex;
+        margin: 0 auto;
+        width: 500px;
+
+        a {
+          text-decoration: none;
+          color: #333333;
+
+          .privacy-policy-box {
+            margin-right: 75px;   
           }
-          .return-btn {
-            background-color: #DDDDDD;
-            font-weight: bold;
-            width: 100%;
-            height: 55px;
-            border-radius: 4px;
-            outline: none;
-            border-style: none;
-            margin-top: 30px;
+    
+          .terms-box {
+            margin-right: 75px;    
           }
         }
+      }
+    } 
+    .footer__logo {
+
+      .logo-img {
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      .logo-text {
+        font-size: 12px;
+        text-align: center;
       }
     }
   }

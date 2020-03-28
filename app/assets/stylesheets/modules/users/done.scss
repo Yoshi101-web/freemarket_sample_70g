@@ -1,0 +1,75 @@
+.main__right {
+  height: 865px;
+  width: 700px;
+  &__title {
+    width: 660px;
+    height: 50px;
+    font-weight: bold;
+    padding: 20px;
+  }
+  &__tabTodo {
+    width: 700px;
+    height: 76px;
+    .tabTodo {
+      height: 74px;
+      display: flex;
+      .done-onsale {
+        width: 350px;
+        height: 74px;
+        line-height: 74px;
+        text-align: center;            
+        font-weight: bold;
+        text-decoration: none;
+        background-color: $grayColer;
+      }
+      .dealing {
+        width: 233px;
+        height: 74px;
+        line-height: 74px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .done-sold {
+        width: 350px;
+        height: 74px;
+        border-top: 2px solid $redColer;
+        line-height: 74px;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+
+    .tabContent {
+      height: 81px;
+      &__info {
+        width: 700px;
+        height: 81px;
+        border-bottom: 1px solid $thingrayColer;
+      }
+      &__lists {
+        width: 700px;
+        height: 70px;
+        display: flex;
+        .items-box_photo__sold {
+          width: 0;
+          height: 0;
+          border-top: 20px solid $redColer;
+          border-right: 20px solid transparent;
+          border-bottom: 20px solid transparent;
+          border-left: 20px solid $redColer;
+          z-index: 100;
+          position: relative;
+          top: -76px;
+          &__inner{
+            transform: rotate(-45deg);
+            font-size: 1px;
+            margin: -5px 1px 0px -20px;
+            color: $whiteColer;
+            letter-spacing: 1px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

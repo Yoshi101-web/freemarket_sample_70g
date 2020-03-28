@@ -1,0 +1,47 @@
+.main__right__top {
+  background-color: $whiteColer;
+  height: 100px;
+  line-height: 100px;
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+}
+.main__right__form {
+  background-color: $whiteColer;
+  .form-group-edit2 {
+    width: 500px;
+    margin: auto;
+    &__label {
+      display: flex;
+      &__moji {
+        width: 105px;
+      }
+      &__require {
+        width: 20px;
+        height: 15px;
+        background-color: $redColer;
+        color: $whiteColer;
+        font-size: 5px;
+      }
+    }
+    &__input{
+      display: block;
+      margin: auto;
+      &--hqlf{
+        align-items: left;
+      }
+    }
+    &__info{
+      font-size: 5px;
+      height: 70px;
+      line-height: 70px;
+      &__extra{
+        font-size: 5px;
+        height: 30px;
+      }
+    }
+    &__text--center{
+      font-size: 5px;
+    }
+  }
+}

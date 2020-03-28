@@ -6,16 +6,22 @@
   }
   .main {
     height: 400px;
+    .item__price {
+      &::before {
+        content: '¥';
+      }
+    }
     .purchase {
       height: 40px;
       width: 50%;
-      margin: 20px 0px;
-      background-color: red;
+      text-align: center;
+      line-height: 40px;
+      display: block;
       border-radius: 10px;
-      font-size: 15px;
-      font-weight: bold;
+      margin: 0 auto;
+      background-color: red;
       color: white;
-      outline: none;
+      margin: 30px auto;
     }
   }
 }

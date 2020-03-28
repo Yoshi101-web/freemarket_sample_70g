@@ -7,9 +7,10 @@
 
   .main
     %p
-      Apple MacBook Pro 13インチ
-    %p
-      ¥135,000(送料込み)
+      = @item.item_name
+
+    %p.item__price
+      = @item.price
     %br
     %h3
       支払い方法
@@ -25,8 +26,7 @@
       %br/
       = exp_month + " / " + exp_year
     %br
-    = form_tag(action: :pay, method: :post) do
-      %button.purchase
-        購入するを確定する
-    = link_to confirm_items_path,class: "return" do
+    = link_to pay_purchase_path(@item.id),class: "purchase" do
+      購入を確定する
+    = link_to confirm_item_path(@item.id),class: "return" do
       戻る

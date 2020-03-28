@@ -1,0 +1,116 @@
+= render partial:"shared/index_header"
+.categories
+  %ul.categories__lists
+    %li.list__head 
+      = link_to root_path, class:'FURIMA-bottom' do
+        FURIMA
+    -if @category.children.first.present? && @category.children.first.children.first.present? then
+      %li.list.font-weight-bold
+        = @category.name
+    -elsif  @category.children.first.present? then
+      %li.list
+        = link_to category_path(@category.parent.id) , class:'font-color'do
+          = @category.parent.name
+      %li.list.font-weight-bold
+        = @category.name
+    -else
+      %li.list
+        = link_to category_path(@category.parent.parent.id), class:'font-color' do
+          = @category.parent.parent.name
+      %li.list
+        = link_to category_path(@category.parent.id), class:'font-color' do
+          = @category.parent.name
+      %li.list.font-weight-bold
+        = @category.name
+
+-# - if @items.empty?
+.category__main
+  .product
+    .product__lists
+    -if @category.children.first.present? && @category.children.first.children.first.present? then
+      %h2 
+        = @category.name
+        の商品一覧（１ページ目）
+      .product__lists__list
+        - @category_children.each do |category_children|
+          - category_children.children.each do |category_child|
+            - category_child.items.each do |category|
+              - category.images.first(1).each do |image|
+                - if category.item_purchaser_id.blank?
+                  = link_to item_path(category.id) do
+                    .image
+                      = image_tag "#{image.image}", alt: "テスト", size: "200x150"
+                    
+                    .item__text
+                      .item__text__name
+                        = category.item_name
+                      .item__text__details
+                        %ul
+                          %li.yen
+                            = category.price
+                          %li.like_counts
+                            - if category.likes_count.blank?
+                              = 0
+                            -else
+                              = category.likes_count
+                        %p
+                          (税込)
+
+    -elsif  @category.children.first.present? then
+      %h2 
+        = @category.name
+        の商品一覧（１ページ目）
+      .product__lists__list
+        - @category_children.each do |category_child|
+          - category_child.items.each do |category|
+            - category.images.first(1).each do |image|
+              - if category.item_purchaser_id.blank?
+                = link_to item_path(category.id) do
+                  .image
+                    = image_tag "#{image.image}", alt: "テスト", size: "200x150"
+                  
+                  .item__text
+                    .item__text__name
+                      = category.item_name
+                    .item__text__details
+                      %ul
+                        %li
+                          .yen
+                            = category.price
+                        %li.like_counts
+                          - if category.likes_count.blank?
+                            = 0
+                          -else
+                            = category.likes_count
+                      %p
+                        (税込)
+    -else
+      %h2 
+        = @category.name
+        の商品一覧（１ページ目）
+      .product__lists__list
+        - @categories.each do |category|
+          - category.images.first(1).each do |image|
+            - if category.item_purchaser_id.blank?
+              = link_to item_path(category.id) do
+                .image
+                  = image_tag "#{image.image}", alt: "テスト", size: "200x150"
+                
+                .item__text
+                  .item__text__name
+                    = category.item_name
+                  .item__text__details
+                    %ul
+                      %li.yen
+                        = category.price
+                      %li.like_counts
+                        - if category.likes_count.blank?
+                          = 0
+                        -else
+                          = category.likes_count
+                    %p
+                      (税込)
+  = paginate(@categories)
+
+
+= render partial:"shared/index_footer"

@@ -1,11 +1,11 @@
 .body {
-  background-color: #f5f5f5;
+  background-color: $thingrayColer;
   .header {
     height: 100px;
     width: auto;
-    background-color: #ffffff;
+    background-color: $whiteColer;
     border-bottom: 1px solid;
-    color: #f5f5f5;
+    color: $thingrayColer;
     &__box {
       height: 100%;
       width: 65%;
@@ -31,8 +31,7 @@
           }
           &__btn {
             display: block;
-            width: 24px;
-            background-color: #3CCACE;
+            background-color: $grrenColer;
             padding: 8px;
           }
         }
@@ -48,30 +47,9 @@
           line-height: 35px;
           .category {
             margin-left: 10px;
-            color: black;
           }
           .brand {
             margin-left: 50px;
-            color: black;
-          }
-        }
-        .lists__right {
-          display: flex;
-          line-height: 35px;
-          .like__list {
-            margin-right: 14px;
-            color: black;
-          }
-          .info__list {
-            margin-right: 14px;
-            color: black;
-          }
-          .todo__list {
-            margin-right: 14px;
-            color: black;
-          }
-          .mypage {
-            color: black;
           }
         }
       }
@@ -82,7 +60,7 @@
   .nav {
     width: auto;
     height: 49px;
-    background-color: #ffffff;
+    background-color: $whiteColer;
     &__itemscope {
       display: flex;
       padding: 16px 0;
@@ -92,7 +70,6 @@
         display: flex;
         .navgation {
           text-decoration: none;
-          color: #333333;
         }
       }
     }
@@ -100,39 +77,46 @@
   .main {
     width: auto;
     height: 1292px;
-    background-color: #f5f5f5;
+    background-color: $thingrayColer;
     display: flex;
     margin: 40px 210px 0 210px;
     &__left {
-      background-color: #ffffff;
       width: 280px;
       margin-right: 40px;
-      height: 1104px;
+      height: 336px;
       &__nav {
+        background-color: $whiteColer;
         .nav__lists {
           &__list {
             width: 248px;
             height: 15px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid $thingrayColer;
             padding: 16px;
             .moji {
               width: 280px;
               height: 48px;
               font-weight: 600;
               text-decoration: none;
-              color: #333;
             }
           }
         }
       }
     }
     &__right {
-      height: 865px;
+      height: 1000px;
       width: 700px;
+      &__head {
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        background-color: $whiteColer;
+        font-size: 20px;
+        font-weight: bold;
+      }
       &__userIcon {
         background-image: url(/material/pict/bg-topMiddleDl-pict.jpg);
         width: 660px;
-        height: 200px;
+        height: 100px;
         padding: 20px;
         .button {
           height: 111px;
@@ -149,7 +133,7 @@
           }
           &__name {
             text-decoration: none;
-            color: #333;
+            color: $blackColer;
           }
           &__number {
             display: flex;
@@ -158,7 +142,7 @@
               margin-left: 255px;
               display: flex;
               width: 200px;
-              color: #333;
+              color: $blackColer;
               .box1 {
                 margin-right: 40px;
               }
@@ -166,191 +150,53 @@
           }
         }
       }
-      &__tabTodo {
+      &__name {
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+      }
+      &__profile {
         width: 700px;
-        height: 243px;
-        background-color: hotpink;
-        .tabTodo {
-          height: 74px;
-          background-color: #fff;
-          display: flex;
-          &__info {
-            width: 350px;
-            height: 74px;
-            line-height: 74px;
-            text-align: center;
-            border-top: 2px solid #ea352d;
+        height: 500px;
+        background-color: $whiteColer;
+        &__box {
+          width: 600px;
+          height: 400px;
+          padding: 50px;
+          &__list1 {
+            height: 80px;
+            display: flex;
+            border: 1px solid;
+            border-color: $grrenColer;
+            &__label {
+              width: 100px;
+              line-height: 80px;
+              border-right: 1px solid;
+              border-color: $grrenColer;
+            }
+            &__content {
+              width: 500px;
+              line-height: 80px;
+            }
           }
-          &__todo-lists {
-            width: 350px;
-            height: 74px;
-            background-color: #eeeeee;
-            line-height: 74px;
-            text-align: center;
-          }
-        }
-        .tabContent {
-          height: 169px;
-          background-color: #ffffff;
-          &__info {
-            width: 700px;
-            height: 81px;
-            border-bottom: 1px solid #eee;
-          }
-          &__go-lists {
-            width: 636px;
-            height: 56px;
-            background-color: #eeeeee;
-            margin: 16px;
-            .go-list {
-              text-decoration: none;
-              color: #333;
-              line-height: 56px;
+          &__list {
+            height: 80px;
+            display: flex;
+            border: 1px solid;
+            border-top: none;
+            border-color: $grrenColer;
+            &__label {
+              width: 100px;
+              line-height: 80px;
+              border-right: 1px solid;
+              border-color: $grrenColer;
+            }
+            &__content {
+              width: 500px;
+              line-height: 80px;
             }
           }
         }
-      }
-      &__itemInfo {
-        width: 700px;
-        height: 382px;
-        margin-top: 40px;
-        .tab-head {
-          width: 668px;
-          height: 72px;
-          background-color: #fafafa;
-          font-size: 16px;
-          line-height: 72px;
-          padding: 0 16px;
-        }
-        .mypage__tabs {
-          height: 74px;
-          background-color: #fff;
-          display: flex;
-          &__active {
-            width: 350px;
-            border-top: 2px solid #ea352d;
-            &__moji {
-              text-decoration: none;
-              color: #333;
-              line-height: 74px;
-              padding-left: 151px;
-            }
-          }
-          &__past {
-            width: 350px;
-            background-color: #eeeeee;
-            &__moji {
-              text-decoration: none;
-              color: #333;
-              line-height: 74px;
-              padding-left: 151px;
-            }
-          }
-        }
-        .tab-content {
-          height: 236px;
-          background-color: #fff;
-        }
-      }
-    }
-  }
-
-
-  .appbanner {
-    height: 150px;
-    width: auto;
-    padding: 100px 40px;
-    background-image: url("/material/pict/bg-appBanner-pict.jpg");
-    background-size: cover;
-    background-position: center;
-    &__inner {
-      color: white;
-      text-align: center;
-      .inner__title {
-        font-size: 24px;
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
-        font-weight: bold;
-      }
-      .inner__text {
-        font-size: 35px;
-        text-shadow: 0 0 5px rgba(0,0,0,0.4)
-      }
-      .inner__btn {
-        height: 70px;
-        .abtn {
-          height: 100%;
-          width:  auto;
-        }
-        .abtn:hover {
-          opacity: 0.5 ;
-        }  
-        .gbtn {
-          height: 100%;
-          width:  auto;
-          margin-left: 50px;
-          transform: scale(1.45);
-        }
-        .gbtn:hover {
-          opacity: 0.5 ;
-        }
-      }
-    }
-  }
-  .footer {
-    height: 230px;
-    padding: 60px 0;
-    background-color: #333;
-    &__contents {
-      padding: 0 350px;
-      display: flex;
-      justify-content: space-around;
-      .content {
-        .title {
-          margin-bottom: 23px;
-          font-weight: bold;
-          color: white;
-        }
-        .lists {
-          text-align: center;
-          display: block;
-          .list {
-            font-size: 10px;
-            margin-top: 15px;
-            color: white;
-          }
-        }
-      }
-    }
-    &__logo {
-      width: 160px;
-      height: 46px;
-      margin: 0 auto;
-    }
-    .logo__under {
-      text-align: center;
-      height: 16px;
-      color: #fff;
-
-    }
-  }
-
-  a {
-    .exhibit {
-      width: 85px;
-      padding: 15px;
-      background: #3CCACE;
-      text-align: center;
-      border-radius: 4%;
-      position: fixed;
-      bottom: 32px;
-      right: 32px;
-      .text {
-        margin-bottom: 5px;
-        font-size: 18px;
-        color: #fff;
-      }
-      &__icon {
-        width: 60%;
       }
     }
   }

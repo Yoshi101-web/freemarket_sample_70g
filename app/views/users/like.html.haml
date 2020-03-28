@@ -1,0 +1,64 @@
+.body
+  = render partial:"shared/index_header"
+  .nav
+    %ul.nav__itemscope
+      %li.nav__itemscope__itemtype
+        = link_to root_path,class: "navgation" do
+          FURIMA
+        .nav__itemscope__itemtype__right
+          　>　
+      %li.nav__itemscope__itemtype2
+        お気に入り商品一覧
+  .main
+    .main__left
+      .main__left__nav
+        .nav__lists
+          %li.nav__lists__list
+            =link_to user_path(current_user.id), class: "moji" do
+              マイページ
+          %li.nav__lists__list
+            =link_to onsale_user_path(current_user.id),class: "moji" do
+              出品した商品-出品中
+          %li.nav__lists__list
+            =link_to done_user_path(current_user.id),class: "moji" do
+              出品した商品-売却済み
+          %li.nav__lists__list
+            =link_to bought_user_path(current_user.id),class: "moji" do
+              購入商品一覧
+          %li.nav__lists__list
+            =link_to like_user_path(current_user.id),class: "moji" do
+              お気に入り商品一覧
+          %li.nav__lists__list
+            =link_to location_edit_user_path,class: "moji" do
+              発送元・お届け先住所変更
+          %li.nav__lists__list
+            =link_to pay_creditcards_path,class: "moji" do
+              支払い方法
+          %li.nav__lists__list
+            =link_to profile_edit_user_path,class: "moji" do
+              本人情報の変更
+          %li.nav__lists__list
+            = link_to "ログアウト",destroy_user_session_path,method: :delete, class: 'moji'
+    .main__right
+      .main__right__bought-title 
+        お気に入り商品一覧
+      .main__right__tabTodo
+        .tabContent
+          .tabContent__info
+            - current_user.like_items.each do |item|
+              = link_to item_path(item.id) do
+                .tabContent__lists
+                  .tabContent__lists__img
+                    = image_tag asset_path(item.images[0].image), :size =>'100x70'
+                  .tabContent__lists__product-name
+                    = item.item_name           
+                    .like-sign
+                      お気に入り済
+                    .like-counts
+                      - if item.likes_count.blank?
+                        = 0
+                      -else
+                        = item.likes_count                        
+
+  = render partial:"shared/index_footer"
+  

@@ -1,88 +1,27 @@
 a {
   text-decoration: none;
-}
-
-.header {
-  height: 100px;
-  width: 100%;
-  &__box {
-    height: 100%;
-    width: 65%;
-    margin: 0 auto;
-    padding: 15px 0 0;
-    &__main {
-      height: 40px;
-      width: 100%;
-      display: flex;
-      line-height: 40px;
-      .logo {
-        position: relative;
-        display: flex;
-        align-items: center;
-      }
-      .search__box {
-        width: 100%;
-        margin-left: 30px;
-        display: flex;
-        &__form {
-          width: 100%;
-        }
-        &__btn {
-          background-color: #3CCACE;
-          padding: 8px;
-        }
-      }
-    }
-    &__sub {
-      height: 35px;
-      margin: 10px 0;
-      font-size: 15px;
-      display: flex;
-      justify-content: space-between;
-      .lists__left {
-        line-height: 35px;
-        display: flex;
-        .category {
-          margin-left: 10px;
-          color: black;
-        }
-        .brand {
-          margin-left: 50px;
-          color: black;
-        }
-      }
-      .lists__right {
-        line-height: 35px;
-        display: flex;
-        .login {
-          margin-right: 50px;
-          color: black;
-        }
-        .signin {
-          margin-right: 10px;
-          color: black;
-        }
-      }
-    }
-  }
+  color: black;
 }
 
 .product-contents{
-  height: 2300px; 
+  height: auto;
+  max-height: 3800px;
   width: 100%;
   padding-top: 20px;
   position: relative;
-  background-color: gainsboro;
+  background-color: #f1f1f1;
+  padding-bottom: 90px;
     &__inner{
-      height: 2100px;
-      width: 800px;
-      background-color: gainsboro;
+      width: 1000px;
+      background-color: #f1f1f1;
       margin: 0 auto;
       &__mainbox{
-        height: 1500px;
-        width: 700px;
-        margin: auto;
+        height: auto;
+        max-height: 2500px;
+        width: 920px;
+        margin: 50px auto;
         background-color: white;
+        padding-bottom: 30px;
         &__top{
           margin: auto;
           height: 100px;
@@ -95,65 +34,152 @@ a {
             height: 70px;
             font-size: 40px;
             line-height: 70px;
-          }
-          &__itemManage {
-            height: 30px;
-            text-decoration: none;
-            color: #3CCACE;
-            .itemManage__edit {
-              padding: 0 10px;
-              text-decoration: none;
-              color: #333;
-              background-color: #3CCACE;
-              border: 1 solid;
-              border-radius: 5%;
-              line-height: 30px;
-            }
-            .itemManage__delete {
-              padding: 0 10px;
-              text-decoration: none;
-              color: #333;
-              background-color: #3CCACE;
-              border: 1 solid;
-              border-radius: 5%;
-              line-height: 30px;
-            }
+            padding-top: 25px;
+            color: #333333;
           }
         }
-        &__main-image{
-          margin: auto;
-          height: 300px;
-          width: 600px;
-          background-image: url(https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg);
-          background-size: cover;
-        }
-        &__other-images{
-          margin: auto;
-          height: 150px;
-          background-color: cadetblue;
-          width: 550px;
-          &__three-images{
-            display: flex;
-            &__first{
-              height: 150px;
-              width: 183px;
-              background-image: url(https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg);
-              background-size: cover;
+
+        &__main-upper-box {
+          display: flex;
+
+          &__main-image{
+            height: 400px;
+            width: 400px;
+            margin-left: 40px;
+            .swiper-container {
+              width: 100%;
+              height: 425px;
+              margin-left: auto;
+              margin-right: auto;
             }
-            &__second{
-              height: 150px;
-              width: 183px;
-              background-image: url(https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg);
+            .swiper-slide {
               background-size: cover;
+              background-position: center;
+
+              .items-box_photo__sold {
+                width: 0;
+                height: 0;
+                border-top: 100px solid #ea352d ;
+                border-right: 100px solid transparent;
+                border-bottom: 100px solid transparent;
+                border-left: 100px solid #ea352d ;
+                z-index:100;
+                position: relative;
+                top:-395px;
+                &__inner{
+                  transform: rotate(-45deg);
+                  font-size: 32px;
+                  margin:-50px 10px 0px -75px;
+                  color: #fff;
+                  letter-spacing: 1px;
+                  font-weight: 600;
+                }
+              }
             }
-            &__third{
-              height: 150px;
-              width: 183px;
-              background-image: url(https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg);
-              background-size: cover;
+            .gallery-top {
+              height: 100%;
+              width: 100%;
+            }
+            .gallery-thumbs {
+              height: 50%;
+              box-sizing: border-box;
+              padding: 10px 0;
+            }
+            .gallery-thumbs .swiper-slide {
+              height: 100%;
+              opacity: 0.4;
+            }
+            .gallery-thumbs .swiper-slide-thumb-active {
+              opacity: 1;
+            }           
+          }
+          
+  
+          &__table{
+            height: 300px;
+            width: 425px;
+            background-color: darkslateblue;
+            border: solid 1px gainsboro;
+            font-size: 14px;
+            margin-left: 20px;
+            &__category-box{
+              display: flex;
+              .category-leftbox{
+                height: 100px;
+                line-height: 100px;
+                text-align: center;
+                width: 150px;
+                background-color: lightgray;
+                border-right: solid 1px gainsboro;
+                border-bottom: solid 1px gainsboro;
+              }
+              .category-rightbox{
+                height: 100px;
+                width: 450px;
+                line-height: 30px;
+                background-color: white;
+                border-bottom: solid 1px gainsboro;
+                padding-left: 7px;
+
+                .parent-name {
+                  display: block;
+                  color: rgb(70, 165, 165);
+                  &:hover{
+                    color: rgb(157, 214, 214);
+                  }
+                }
+                .children-name {
+                  display: block;
+                  color: rgb(70, 165, 165);
+                  &::before{
+                    font-family: "Font Awesome 5 Free";
+                    content:"\f054";
+                    font-weight: bold;
+                  }
+                  &:hover{
+                    color: rgb(157, 214, 214);
+                  }
+                }
+                .grand-children-name{
+                  display: block;
+                  color: rgb(70, 165, 165);
+                  &::before{
+                    font-family: "Font Awesome 5 Free";
+                    content:"\f054";
+                    font-weight: bold;
+                  }
+                  &:hover{
+                    color: rgb(157, 214, 214);
+                  }
+                }
+              }
+            }
+            &__box{
+              display: flex;
+              .leftbox{
+                height: 40px;
+                line-height: 40px;
+                width: 150px;
+                background-color: lightgray;
+                text-align: center;
+                border-right: solid 1px gainsboro;
+                border-bottom: solid 1px gainsboro;
+              }
+              .rightbox{
+                height: 40px;
+                width: 450px;
+                line-height: 40px;
+                background-color: white;
+                border-bottom: solid 1px gainsboro;
+                border-right: solid 1px gainsboro;
+                padding-left: 7px;
+              }
             }
           }
+
         }
+        
+      
         &__price{
           height: 100px;
           line-height: 100px;
@@ -163,8 +189,9 @@ a {
           font-size: 50px;
           font-weight: bold;
           text-align: center;
-          &::after{
-            content: '円';
+          margin-top: 130px;
+          &::before{
+            content: '¥';
           }
         }
         &__additional-price{
@@ -176,47 +203,37 @@ a {
           background-color: white;
         }
         .item-buy-btn {
-          font-size: 24px;
-          line-height: 60px;
+          font-size: 20px;
+          line-height: 50px;
           background-color: #3CCACE;
           color: #fff;
           display: block;
           text-align: center;
-          font-weight: 600;
-          margin: 16px 40px;
+          font-weight: 500;
+          margin: 20px auto;
+          width: 700px;
+          height: 50px;
+        }
+        .item-sold-notice {
+          font-size: 20px;
+          line-height: 50px;
+          background-color: red;
+          color: #fff;
+          display: block;
+          text-align: center;
+          font-weight: 500;
+          margin: 20px auto;
+          width: 700px;
+          height: 50px;
         }
         &__description{
-          height: 300px;
-          width: 600px;
+          height: auto;
+          max-height: 1000px;
+          width: 700px;
           background-color: white;
-          margin: auto;
-          
+          margin: 30px auto;          
         }
-        &__table{
-          height: 300px;
-          width: 600px;
-          background-color: darkslateblue;
-          margin: auto;
-          border: solid 1px gainsboro;
-          &__box{
-            display: flex;
-            .leftbox{
-              height: 37.5px;
-              line-height: 37.5px;
-              width: 150px;
-              background-color: lightgray;
-              text-align: center;
-              border-right: solid 1px gainsboro;
-              border-bottom: solid 1px gainsboro;
-            }
-            .rightbox{
-              height: 37.5px;
-              width: 450px;
-              background-color: white;
-              border-bottom: solid 1px gainsboro;
-            }
-          }
-        }
+        
         &__links{
           height: 50px;
           width: 600px;
@@ -225,46 +242,67 @@ a {
           margin-top: 50px;
           display: flex;
           justify-content: space-between;
-          &__favorite{
-            height: 50px;
-            line-height: 50px;
-            width:170px;
-            background-color:white;
-            display: flex;
-            text-align: center;
-            color: #3ccace;
-            border: solid 1px #3ccace;
-            &__icon{
-              height: 50px;
-              width: 50px;
-              background-color: white;
-              color:  #3ccace;
+            &__favorite {
+              .option {
+                display: flex;
+                justify-content: space-between;
+                &__like {
+                  &-on {
+                    text-decoration: none;
+                    padding: 11px 10px;
+                    border-radius: 40px;
+                    color: #FF5192;
+                    border: 1px solid #3CCACC;
+                    display: flex;
+                    line-height: 16px;
+                    .fas.fa-heart {
+                      padding-right: 5px;
+                    }
+                    &__text {
+                      padding-right: 5px;
+                    }
+                  }
+                  &-off {
+                    text-decoration: none;
+                    padding: 11px 10px;
+                    border-radius: 40px;
+                    color: #333;
+                    border: 1px solid #f5f5f5;
+                    display: flex;
+                    line-height: 16px;
+                    background: #f5f5f5;
+                    .fas.fa-heart {
+                      padding-right: 5px;
+                    }
+                    &__text {
+                      padding-right: 5px;
+                    }
+                  }
+                }
+              }
             }
-            &__letter{
-              height: 50px;
-              line-height: 50px;
-              width: 120px;
-              background-color: white;
-            }
-          }
+
           &__report{
             height: 50px;
-            width: 200px;
-            background-color: lightcoral;
+            width: 230px;
             display: flex;
             border: solid 1px black;
+            border-radius: 5px;
             &__icon{
               height: 50px;
               line-height: 50px;
               width: 50px;
               background-color: white;
+              margin-right: 5px;
+              border-radius: 5px;
             }
             &__letter{
               height: 50px;
               line-height: 50px;
               width: 150px;
               background-color: white;
-              
+              margin-right: 20px;
+              border-radius: 5px;
             }
           }
         }
@@ -272,13 +310,13 @@ a {
 
       &__edit-delete-btn-content{
         height: 250px;
-        width: 700px;
+        width: 920px;
         background-color: white;
         margin: 20px auto;
         position: relative;
 
         .edit-btn {
-          width: 600px;
+          width: 700px;
           height: 50px;
           position: absolute;
           margin: auto;
@@ -296,7 +334,7 @@ a {
             color: white;
           }
           .selection {
-            width: 600px;
+            width: 700px;
             height: 50px;
             margin: auto;
             top: 0;
@@ -304,212 +342,119 @@ a {
             bottom: 0;
             left: 0;
             line-height: 50px;
-            text-align: center;          
+            text-align: center;
           }
           a {
               .delete-btn {
-                width: 600px;
-              height: 50px;
-              margin: auto;
-              top: 0;
-              right: 0;
-              bottom: 0;
-              left: 0;
-              line-height: 50px;
-              text-align: center;
-              background-color: #AAAAAA;
-              color: white;                
-             }
+                width: 700px;
+                height: 50px;
+                margin: auto;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                line-height: 50px;
+                text-align: center;
+                background-color: #AAAAAA;
+                color: white;
+              }
           }
           
         }
 
-        
-
-      
-
       }
       &__commentbox{
-        height: 400px;
-        width: 700px;
+        height: auto;
+        width: 920px;
         margin: auto;
         margin-top: 20px;
         background-color: white;
         position: relative;
-        &__content{
-          height: 100px;
-          width: 600px;
-          background-color:white;
-          margin: auto;
-          box-sizing: border-box;
-          position: absolute;
-          top: 30px;
-          left: 50px;
-          border: solid 1px black;
-        }
+        padding-bottom: 30px;
         &__warning{
           height: 80px;
           line-height: 30px;
           width: 600px;
-          background-color: gainsboro;
-          margin: auto;
+          background-color: #FFF6DE;
+          color: #333333;
+          margin-left: 120px;
           position: absolute;
           left: 50px;
-          top: 160px;
+          top: 20px;
           text-align: center;
         }
+        &__content{
+          height: 200px;
+          width: 700px;
+          background-color:white;
+          margin: 0 60px;
+          box-sizing: border-box;
+          position: absolute;
+          top: 120px;
+          left: 50px;
+        }
         &__comment{
-          height: 50px;
-          width: 250px;
+          resize: none;
+          height: 200px;
+          width: 700px;
           background-color: white;
           margin: auto;
-          position: absolute;
           left: 210px;
           top: 280px;
-          display: flex;
-          &__icon{
-            width: 50px;
-            height: 50px;
-            line-height: 60px;
-            background-color: #3ccace;
-          }
+          display: flex; 
+
           &__btn{
             width: 200px;
             font-weight: bold;
-            font-size: 30px;
+            font-size: 20px;
             height: 50px;
             line-height: 50px;
             background-color: #3ccace;
             text-align: center;
             color: white;
-
+            left: 200px;
+            cursor: pointer;
           }
         }
-      }
-      &__lowerbox1{
-        height: 50px;
-        width: 700px;
-        margin: auto;
-        background-color: gainsboro;
-        display: flex;
-        justify-content: space-between;
-        font-size: 20px;
-        color: #3ccace;
-      }
-      &__lowerbox2{
-        height: 60px;
-        width: 700px;
-        margin: auto;
-        font-size: 35px;
-        background-color: gainsboro;
-        color: #3ccace;
-      }
-    }
-  }
-
-  .appbanner {
-    height: 150px;
-    width: auto;
-    padding: 100px 40px;
-    background-image: url("/material/pict/bg-appBanner-pict.jpg");
-    background-size: cover;
-    background-position: center;
-    &__inner {
-      color: white;
-      text-align: center;
-      
-      .inner__title {
-        font-size: 24px;
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
-        font-weight: bold;
-      }
-      .inner__text {
-        font-size: 35px;
-        text-shadow: 0 0 5px rgba(0,0,0,0.4)
-      }
-      .inner__btn {
-        height: 70px;
-        .abtn {
-          height: 100%;
-          width:  auto;
+        .testclass {
+          margin: auto;
+          height: 50px;
+          width: 200px;
+          margin-top: 10px;
         }
-        .abtn:hover {
-          opacity: 0.5 ;
-        }  
-        .gbtn {
-          height: 100%;
-          width:  auto;
-          margin-left: 50px;
-          transform: scale(1.45);
-        }
-        .gbtn:hover {
-          opacity: 0.5 ;
-        }
-      }
-    }
-  }
-  
-  
-  
-  
-  .footer {
-    height: 230px;
-    padding: 60px 0;
-    background-color: black;
-    &__contents {
-      padding: 0 350px;
-      display: flex;
-      justify-content: space-around;
-      .content {
-        .title {
-          margin-bottom: 23px;
-          font-weight: bold;
-          color: white;
-        }
-        .lists {
-          text-align: center;
-          .list {
-            font-size: 10px;
-            margin-top: 15px;
-            color: white;
+        .comments {
+          padding-top: 300px;
+          h4 {
+            text-align: center;
+          }
+          &__box {
+            padding-top: 100px;
+            height:auto;
+            width: 700px;
+            margin: 0 auto;
+            overflow: scroll;
+            .upper-comment {
+              display: flex;
+              .upper-comment__user-name {
+                margin-right: 10px;
+                .link {
+                  text-decoration: none;
+                }
+              }
+              &__date {
+                color: #999999;
+                font-size: 12px;
+              }
+            }
+            .lower-comment {
+              margin-bottom: 20px;
+            }
           }
         }
-      }
-    }
-    .footer__logo {
-      margin-left: 750px;
-    }
-    p {
-      color: white;
-      text-align: center;
-    }  
-  }
-  
-  
-  
-  
-  
-  a {
-    .exhibit {
-      width: 85px;
-      padding: 15px;
-      background: #3CCACE;
-      text-align: center;
-      border-radius: 4%;
-      position: fixed;
-      bottom: 32px;
-      right: 32px;
-      .text {
-        margin-bottom: 5px;
-        font-size: 18px;
-        color: #fff;
-      }
-      &__icon {
-        width: 60%;
+        
       }
     }
   }
-
 
 .comment-icon{
   color: white;

@@ -24,7 +24,7 @@
                 = f.fields_for :images do |i|
                   = i.label :image, class: 'image-field__label' do
                     = icon('fas', 'camera', class: 'camera-icon img-file')
-                    = i.file_field :image, type: 'file', name: "item[images_attributes][][image]", id:"img-file"
+                    = i.file_field :image, type: 'file', name: "item[images_attributes][][image]", id:"img-file", class: "img-file"
                     %br/
 
                     .image-upload-description-box
@@ -129,15 +129,16 @@
           
           .sales-commission-info
             .sales-commission-tax 販売手数料（10%）
-            .sales-commission-calc ー
+            .sales-commission-calc 
             
           .sales-profit-info
             .sales-profit-subtitle 販売利益
-            .sales-profit-calc ー
+            .sales-profit-calc
 
           = f.submit "出品する", class: "sell-btn"
 
-          %input.return-btn{type: "button", value: "もどる"}
+          = link_to :back do
+            %input.new-return-btn{type: "button", value: "もどる"}
 
           .terms-info-box
             %p.tems-info-description 
@@ -147,16 +148,5 @@
               /
               また、出品をもちまして加盟店規約に同意したことになります。
 
-  .lower-content
-    .legal-info-box
-      .hoge
-        = link_to "#" do
-          .privacy-policy-box プライバシーポリシー
-        = link_to "#" do  
-          .terms-box FURIMA利用規約
-        = link_to "#" do
-          .specified-commercial-transaction-act-box 特定商取引に関する表記
-    .footer__logo
-      .logo-img
-        = image_tag src="/logo-white.png", size: "160x46"
-      .logo-text ©FURIMA
+  = render partial:"shared/items_new_footer"
+  

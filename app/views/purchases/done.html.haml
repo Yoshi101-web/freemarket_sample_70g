@@ -1,11 +1,42 @@
-.wrapper
-  .header
-    %h2.abc
-      購入が完了しました！
-  .main
-    %p
-      Apple MacBook Pro 13インチ
-    %p
-      ¥135,000(送料込み)
-    = link_to done_items_path, class: "return" do
-      戻る
+.body
+  .items-purchases-done-header
+    .items-purchases-done-header__logo
+      = link_to root_path do
+        = image_tag "/logo.png", size: "185x48"
+
+  .main-purchases-done-contents
+    = form_with url:"#" do |f|
+      .main-purchases-done-content
+        .main-purchases-done-content__header
+          %h2 購入が完了しました！
+        
+        - @item.images.first(1).each do |image|
+          .main-purchases-done-content__buy-item
+            = image_tag "#{image.image}", alt: "テスト", size: "100x100"
+            .main-purchases-done-content__buy-item__group
+              .main-purchases-done-content__buy-item__group__item-name
+                %h3 
+                = @item.item_name
+              .main-purchases-done-content__buy-item__group__item-price
+                %h3
+                ¥
+                = @item.price
+              .main-purchases-done-content__buy-item__group__shipping-fee-payer
+                %h3.purchases-done-tax （税込）送料込み
+          .main-purchases-done-content__submit
+            = link_to "TOPへ戻る", root_path, class: "purchases-done-confirm-submit"
+            = link_to "取引画面へ", item_path(@item.id), class: "purchases-done-return-btn"
+          
+  .lower-content
+    .legal-info-box
+      .hoge
+        = link_to "#" do
+          .privacy-policy-box プライバシーポリシー
+        = link_to "#" do  
+          .terms-box FURIMA利用規約
+        = link_to "#" do
+          .specified-commercial-transaction-act-box 特定商取引に関する表記
+    .footer__logo
+      .logo-img
+        = image_tag "/logo-white.png", size: "160x46"
+      .logo-text ©FURIMA
