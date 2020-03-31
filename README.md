@@ -1,16 +1,16 @@
-概要
+## 🟢概要  
 　テックキャンプの最終課題にて作成したアプリケーションを紹介します。  
 　また本資料では、自身で実装した箇所、および開発を通じて得られた経験についても紹介します。  
 
 <img width="1361" alt="toppage" src="https://user-images.githubusercontent.com/60503907/78002051-92d2ab00-7371-11ea-9aee-be5ef263839e.png">
 
-開発状況  
+## 🟢開発状況  
 ・開発環境  
 　○Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code  
 ・アジャイル型開発（スクラム）  
 ・Trelloによるタスク管理  
 
-アプリケーション情報  
+## 🟢アプリケーション情報  
 　　アプリケーション概要  
 　　フリーマーケットのアプリケーションを作成しました。  
 　●接続先情報 
@@ -29,6 +29,8 @@
 　　　　■　出品者用  
 　　　　　　●　メールアドレス名: kei@gmail.com  
 　　　　　　●　パスワード: sasasasa  
+
+
 
 
 ## usersテーブル ※gem deviseを利用する
